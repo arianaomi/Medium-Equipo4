@@ -2,7 +2,7 @@
 
 _replica medium blog with functionality_
 
-##_Integrantes:_
+## _Integrantes:
 
 - Ariana Naomi
 
