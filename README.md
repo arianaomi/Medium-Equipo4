@@ -1,2 +1,11 @@
 # Medium-Equipo4
-replica medium blog with functionality
+
+_replica medium blog with functionality_
+
+##_Integrantes:_
+
+- Ariana Naomi
+
+- Juan Cundafé
+
+- Arturo Buendia
