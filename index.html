@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medium – Get smarter about what matters to you.</title>
+    <link
+      rel="icon"
+      href="img/medium-logos-master/monogram/Monogram.svg"
+      type="imagen/svg"
+    />
+    <!-- Enlazando bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!-- En lazando mi css -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- Modales a utilizar -->
+    <!-- Fin modales -->
+    <!-- contenedor logo e iconos -->
+    <div class="container pt-4">
+      <!-- Logo -->
+      <div class="row">
+        <div class="col-8">
+          <img
+            class="d-none d-md-inline"
+            src="img/medium-logos-master/wordmark/Wordmark_Black.svg"
+            height="22"
+            alt="logo"
+          />
+          <img
+            class="d-inline d-md-none"
+            src="img/medium-logos-master/monogram/Monogram.svg"
+            width="35"
+            height="35"
+            alt="logo"
+          />
+        </div>
+        <!-- fin logo -->
+        <!-- Iconos y boton  -->
+        <div
+          class="col-4 d-flex justify-content-md-around justify-content-left align-items-center"
+        >
+          <!-- icono 1 -->
+          <svg
+            class="bi bi-search"
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"
+            />
+          </svg>
+          <!-- Icono 2 -->
+
+          <svg
+            class="bi bi-bookmarks d-none d-md-flex"
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7 13l5 3V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12l5-3zm-4 1.234l4-2.4 4 2.4V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10.234z"
+            />
+            <path
+              d="M14 14l-1-.6V2a1 1 0 0 0-1-1H4.268A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v12z"
+            />
+          </svg>
+          <!-- Icono 3 -->
+          <svg
+            class="bi bi-bell"
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2z" />
+            <path
+              fill-rule="evenodd"
+              d="M8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"
+            />
+          </svg>
+
+          <button type="button" class="btn d-none d-md-flex">
+            Upgrate
+          </button>
+
+          <img
+            class="rounded-circle ml-3 ml-md-0"
+            src="img/img layout/1_ohNqdoV9lKPcxTAUpA2NqQ.png"
+            width="35"
+            height="35"
+            alt="logo"
+          />
+          <!-- Boton que llevar a crear Post  MODIFICAR LO QUE SE NECESITE -->
+          <a id="btn-newPost" href="">
+            <svg
+              class="bi bi-three-dots-vertical"
+              width="1em"
+              height="1em"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+              />
+            </svg>
+          </a>
+          <!-- fin boton que llevara a crear post -->
+        </div>
+        <!-- fin iconos y bontonn -->
+      </div>
+    </div>
+    <!-- fin contenedor logo e iconos -->
+    <!-- menu -->
+    <nav
+      class="sticky-nav d-flex justify-content-center align-items-center mt-3 pl-md-5"
+    >
+      <i class="fas fa-angle-left"></i>
+      <ul class="ocultar nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Popular</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">MOMENTUM</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">CORONAVIRUS</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#">ONEZERO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">ELEMENTAL</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">GEN</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">ZORA</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">FORGE</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-nowrap" href="#">HUMAN PARTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">MARKER</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">LEVEL</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">HEATED</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">MORE</a>
+        </li>
+      </ul>
+      <i class="fas fa-angle-right"></i>
+    </nav>
+    <!-- fin menu -->
+    <!-- CONTENEDOR  DEL CUERPO DE LA PÁGINA ( el contenido de id="content-wrapper" debe de cambiar cuando se le indique) -->
+    <div id="content-wrapper" class="container mt-4">
+      <!-- Seccion 1 Cards Rrecientes  -->
+      <div class="row">
+        <!-- card 1-Recientes-->
+        <div class="col-12 col-md-6 col-lg-5">
+          <article class="mb-4">
+            <div class="card text-left border-white">
+              <img
+                height="150"
+                src="img/img layout/1_9qS3yM0_HipiqZ4nS0LIaQ.png"
+                class="card-img-top img-sec1"
+              />
+              <div class="card-body text-left p-card1">
+                <h5 class="text-left">
+                  You Will Destroy Yourself Financially if You Save
+                </h5>
+                <p class="text-muted parafos-card">
+                  There's a simple strategy that will change your financial life
+                  and you.
+                </p>
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <small class="text-muted">
+                      <a href="#" class="text-dark"> Tim Denning </a>
+                      <span class="text-dark">in</span>
+                      <a href="#" class="text-dark">Mind cafe </a>
+                    </small>
+
+                    <small class="text-muted"
+                      ><p class="card-text">
+                        May 20 &middot; 6 min read
+                        <i class="p-2 fas fa-star"></i></p
+                    ></small>
+                  </div>
+                  <div class="font-weight-lighter text-muted">
+                    <svg
+                      class="bi bi-three-dots"
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                      />
+                    </svg>
+                    <a href="#" class="card-link text-dark text-muted"
+                      ><i class="fas fa-ellipsis-h ml-3"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <!-- fin card 1-->
+        <!-- Seccion de tres cards -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <!-- Contenedor de 3 cards -->
+          <div class="wrapper">
+            <!-- art 1 -->
+            <article class="mb-4">
+              <div class="row d-flex flex-row-reverse flex-md-row no-gutters">
+                <div class="col-4">
+                  <img
+                    src="img/img layout/0_KTTEz-SWUlIhIZn9.jpeg"
+                    class="ml-4 ml-md-0"
+                  />
+                </div>
+                <div class="col-8 col-">
+                  <div class="pl-md-2">
+                    <h6 class="">
+                      Your Homemade Pizza Will Be Better Than Most Delivery
+                      Option
+                    </h6>
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <small class="text-muted">
+                          <a href="#" class="text-dark">Mark Bittman </a>
+                          <span class="text-dark">in</span>
+                          <a href="#" class="text-dark">Heated </a>
+                        </small>
+
+                        <small class="text-muted"
+                          ><p class="card-text">
+                            May 20 &#183; 6 min read
+                            <i class="p-2 fas fa-star"></i></p
+                        ></small>
+                      </div>
+                      <div class="font-weight-lighter text-muted">
+                        <i
+                          class="far fa-bookmark d-md-none d--inline-block"
+                        ></i>
+                        <a href="#" class="card-link text-dark text-muted"
+                          ><i class="fas fa-ellipsis-h ml-3"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <!-- art 2 -->
+            <article class="mb-4">
+              <div class="row d-flex flex-row-reverse flex-md-row no-gutters">
+                <div class="col-4">
+                  <img
+                    src="img/img layout/1_4vrJvwVCfOiidWOqrCzN3w.png"
+                    class="ml-4 ml-md-0"
+                  />
+                </div>
+                <div class="col-8 col-">
+                  <div class="pl-md-2">
+                    <h6 class="">
+                      Omnipork Races Impossible Foods to the Future of
+                      Plant-Based pork
+                    </h6>
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <small class="text-muted">
+                          <a href="#" class="text-dark">Mark Bittman </a>
+                          <span class="text-dark">in</span>
+                          <a href="#" class="text-dark">Heated </a>
+                        </small>
+
+                        <small class="text-muted"
+                          ><p class="card-text">
+                            Feb 20 &#183; 30 min read
+                            <i class="p-2 fas fa-star"></i></p
+                        ></small>
+                      </div>
+                      <div class="font-weight-lighter text-muted">
+                        <i
+                          class="far fa-bookmark d-md-none d--inline-block"
+                        ></i>
+                        <a href="#" class="card-link text-dark text-muted"
+                          ><i class="fas fa-ellipsis-h ml-3"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <!-- art 3 -->
+            <article class="mb-4">
+              <div class="row d-flex flex-row-reverse flex-md-row no-gutters">
+                <div class="col-4">
+                  <img
+                    src="img/img layout/1_xqjzLGJPF0dWHtVkkW1sZw.png"
+                    class="ml-4 ml-md-0"
+                  />
+                </div>
+                <div class="col-8 col-">
+                  <div class="pl-md-2">
+                    <h6 class="">
+                      If You Wants To Be Rich, Stop Focusing On Your Salary
+                    </h6>
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <small class="text-muted">
+                          <a href="#" class="text-dark">Mark Bittman </a>
+                          <span class="text-dark">in</span>
+                          <a href="#" class="text-dark">Heated </a>
+                        </small>
+
+                        <small class="text-muted"
+                          ><p class="card-text">
+                            Apr 04 &#183; 19 min read
+                            <i class="p-2 fas fa-star"></i></p
+                        ></small>
+                      </div>
+                      <div class="font-weight-lighter text-muted">
+                        <i
+                          class="far fa-bookmark d-md-none d--inline-block"
+                        ></i>
+                        <a href="#" class="card-link text-dark text-muted"
+                          ><i class="fas fa-ellipsis-h ml-3"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <!-- fin Contenedor de 3 cards -->
+        </div>
+        <!-- Fin tres cards -->
+        <!-- Card 2-Reciente -->
+        <div class="col-12 col-md-3">
+          <article class="mb-4 d-none d-lg-block">
+            <div class="card text-left border-white">
+              <img
+                height="150"
+                src="img/img layout/1_owfuevieqUPK_dy_IXI9RQ.jpeg"
+                class="card-img-top"
+              />
+              <div class="mt-2 mr-5 text-left p-card3">
+                <h5 class="text-left">
+                  Three Sing of an Amateur Writer
+                </h5>
+                <p class="text-muted parafos-card">
+                  New to the writing community? Amateur Wr...
+                </p>
+
+                <p></p>
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <small class="text-muted">
+                      <a href="#" class="text-dark"> Zach J. </a>
+                      <span class="text-dark">in</span>
+                      <a href="#" class="text-dark">Payne </a>
+                    </small>
+
+                    <small class="text-muted"
+                      ><p class="card-text">
+                        Jan 31 &middot; 5 min read
+                        <i class="p-2 fas fa-star"></i></p
+                    ></small>
+                  </div>
+                  <div class="font-weight-lighter text-muted">
+                    <i class="far fa-bookmark d-md-none d--inline-block"></i>
+                    <a href="#" class="card-link text-dark"
+                      ><i class="fas fa-ellipsis-h ml-3"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <!-- fin Card 2-Reciente -->
+        <!-- Enlace SEE EDITOR'S -->
+        <div class="col-12">
+          <div class="enlace d-flex justify-content-md-end border-bottom mb-4">
+            <a class="font-weight-lighter text-md-right pb-4" href="#">
+              SEE EDITOR´S PICKS
+              <span class="font-weight-light"
+                ><i class="fas fa-angle-right"></i
+              ></span>
+            </a>
+          </div>
+        </div>
+        <!-- FIN SEE EDITOR'S -->
+      </div>
+      <!-- fin Cards recientes  -->
+
+      <!-- FILA 2 -->
+      <div class="row">
+        <!-- section 1-CARDS GENERALES -->
+        <div class="col-12 col-md-8">
+          <section class="content-aling-center ml mr-md-3">
+            <article class="mb-4">
+              <div class="row d-flex no-gutters">
+                <div class="col-8">
+                  <div class="pl-1 md-1">
+                    <p class="text-muted my-0">
+                      <small class="card-text">BUSINESS Popular topic</small>
+                    </p>
+                    <h5 class="card-text my-0">
+                      How to Lose $20M by Filling Out a Form Wrong
+                    </h5>
+                    <p class="text-muted my-0 d-none d-md-inline">
+                      <small class="card-text">A true story</small>
+                    </p>
+                    <div class="d-flex justify-content-between pr-2">
+                      <div>
+                        <small class="text-muted">
+                          <a href="#" class="text-dark">Sean Kernan </a>
+                        </small>
+
+                        <small class="text-muted"
+                          ><p class="card-text">
+                            Apr 20 &#183; 3 min read
+                            <i class="p-2 fas fa-star"></i></p
+                        ></small>
+                      </div>
+                      <div class="font-weight-lighter text-muted">
+                        <i class="far fa-bookmark"></i>
+                        <a href="#" class="card-link text-dark text-muted"
+                          ><i class="fas fa-ellipsis-h ml-3"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <img
+                    src="img/img layout/0_tsezSmol1S8867fJ.jpeg"
+                    class="img-fluid"
+                    alt="Responsive image"
+                  />
+                </div>
+              </div>
+            </article>
+            <article class="mb-4">
+              <div class="row d-flex no-gutters">
+                <div class="col-8">
+                  <div class="pl-1 md-1">
+                    <p class="text-muted my-0">
+                      <small class="card-text">BUSINESS Popular topic</small>
+                    </p>
+                    <h5 class="card-text my-0">
+                      The Content Marketing Strategy Kyle Jener Used to Build a
+                      $900M Busisnes In Years
+                    </h5>
+                    <p class="text-muted my-0 d-none d-md-inline">
+                      <small class="card-text"
+                        >For 24 years, Soviet scientists dug deeper into the
+                        Earth’s surface than anyone had ever done before. The
+                        result was the Kola Superdeep…
+                      </small>
+                    </p>
+                    <div class="d-flex justify-content-between pr-2">
+                      <div>
+                        <small class="text-muted">
+                          <a href="#" class="text-dark">Lindy in Fearless </a>
+                          <span class="text-dark">She</span>
+                          <a href="#" class="text-dark">Wrote </a>
+                        </small>
+
+                        <small class="text-muted"
+                          ><p class="card-text">
+                            Jun 26 &#183; 13 min read
+                            <i class="p-2 fas fa-star"></i></p
+                        ></small>
+                      </div>
+                      <div class="font-weight-lighter text-muted">
+                        <i class="far fa-bookmark"></i>
+                        <a href="#" class="card-link text-dark text-muted"
+                          ><i class="fas fa-ellipsis-h ml-3"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <img
+                    src="img/img layout/1_ohNqdoV9lKPcxTAUpA2NqQ.png"
+                    class="img-fluid"
+                    alt="Responsive image"
+                  />
+                </div>
+              </div>
+            </article>
+            <article class="mb-4">
+              <div class="row d-flex no-gutters">
+                <div class="col-8">
+                  <div class="pl-1 md-1">
+                    <p class="text-muted my-0">
+                      <small class="card-text">BUSINESS Popular topic</small>
+                    </p>
+                    <h5 class="card-text my-0">
+                      What Your Resting Heart Rate Tells You About Your Health
+                    </h5>
+                    <p class="text-muted my-0 d-none d-md-inline">
+                      <small class="card-text"
+                        >It could hint at how long you’ll live
+                      </small>
+                    </p>
+                    <div class="d-flex justify-content-between pr-2">
+                      <div>
+                        <small class="text-muted">
+                          <a href="#" class="text-dark">William Spivey in </a>
+                          <span class="text-dark">in</span>
+                          <a href="#" class="text-dark">The AAMBC Journal </a>
+                        </small>
+
+                        <small class="text-muted"
+                          ><p class="card-text">
+                            Sep 3 2019 &#183; 5 min read
+                            <i class="p-2 fas fa-star"></i></p
+                        ></small>
+                      </div>
+                      <div class="font-weight-lighter text-muted">
+                        <i class="far fa-bookmark"></i>
+                        <a href="#" class="card-link text-dark text-muted"
+                          ><i class="fas fa-ellipsis-h ml-3"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <img
+                    src="img/img layout/1_T332SH8ukO30bCLKa7YT0w.png"
+                    class="img-fluid"
+                    alt="Responsive image"
+                  />
+                </div>
+              </div>
+            </article>
+            <article class="mb-4">
+              <div class="row d-flex no-gutters">
+                <div class="col-8">
+                  <div class="pl-1 md-1">
+                    <p class="text-muted my-0">
+                      <small class="card-text"
+                        >ARTIFICIAL INTELLIGENCE Popular topic</small
+                      >
+                    </p>
+                    <h5 class="card-text my-0">
+                      How to solve 90% of NLP problems: a step-by-step guide
+                    </h5>
+                    <p class="text-muted my-0 d-none d-md-inline">
+                      <small class="card-text"
+                        >Using Machine Learning to understand and leverage
+                        text.</small
+                      >
+                    </p>
+                    <div class="d-flex justify-content-between pr-2">
+                      <div>
+                        <small class="text-muted">
+                          <a href="#" class="text-dark">James Hatch </a>
+                          <span class="text-dark">in</span>
+                          <a href="#" class="text-dark">GEN </a>
+                        </small>
+
+                        <small class="text-muted"
+                          ><p class="card-text">
+                            Dec 21, 2019 &#183; 11 min read
+                            <i class="p-2 fas fa-star"></i></p
+                        ></small>
+                      </div>
+                      <div class="font-weight-lighter text-muted">
+                        <i class="far fa-bookmark"></i>
+                        <a href="#" class="card-link text-dark text-muted"
+                          ><i class="fas fa-ellipsis-h ml-3"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <img
+                    src="img/img layout/1_z8oyPf2QSzSKP_Za1_R3PQ.jpeg"
+                    class="img-fluid"
+                    alt="Responsive image"
+                  />
+                </div>
+              </div>
+            </article>
+            <article class="mb-4">
+              <div class="row d-flex no-gutters">
+                <div class="col-8">
+                  <div class="pl-1 md-1">
+                    <p class="text-muted my-0">
+                      <small class="card-text">SCIENCE Popular topic</small>
+                    </p>
+                    <h5 class="card-text my-0">
+                      What Color Is Your Name? A New Synesthesia Tool Will Show
+                      You.
+                    </h5>
+                    <p class="text-muted my-0 d-none d-md-inline">
+                      <small class="card-text"
+                        >Here’s your chance to see how people with synesthesia
+                        perceive letters and numbers</small
+                      >
+                    </p>
+                    <div class="d-flex justify-content-between pr-2">
+                      <div>
+                        <small class="text-muted">
+                          <a href="#" class="text-dark">Rachel </a>
+                          <span class="text-dark">&</span>
+                          <a href="#" class="text-dark">Wayne</a>
+                        </small>
+
+                        <small class="text-muted"
+                          ><p class="card-text">
+                            Aug 26, 2020 &#183; 6 min read
+                            <i class="p-2 fas fa-star"></i></p
+                        ></small>
+                      </div>
+                      <div class="font-weight-lighter text-muted">
+                        <i class="far fa-bookmark"></i>
+                        <a href="#" class="card-link text-dark text-muted"
+                          ><i class="fas fa-ellipsis-h ml-3"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <img
+                    src="img/img layout/1_9qS3yM0_HipiqZ4nS0LIaQ.png"
+                    class="img-fluid"
+                    alt="Responsive image"
+                  />
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+        <!-- fin section 1-CARDS GENERALES -->
+        <!-- aside CARDS POPULARES y footer  -->
+        <div class="col-12 col-md-4 sticky-aside mb-3 pl-md-4">
+          <aside class="pb-5 border-bottom">
+            <h5 class=".h3-aside pb-3 border-bottom mt-5">Popular on Medium</h5>
+
+            <ol class="popular pl-0 pt-4">
+              <!-- 01 -->
+              <li class="d-flex mb-2">
+                <div class="num-popular mt-1">
+                  01
+                </div>
+                <div class="m-3">
+                  <h6 class="mb-1">
+                    Every Type of Zoom Call Participant, Illustrrated by Cats
+                  </h6>
+                  <div>
+                    <small>
+                      Jack Shepherd in Tenderly
+                    </small>
+                    <small class="text-muted">
+                      <p class="card-text">
+                        May 20 - 6 min read <i class="fas fa-star"></i>
+                      </p>
+                    </small>
+                  </div>
+                </div>
+              </li>
+              <!-- 02 -->
+              <li class="d-flex mb-2">
+                <div class="num-popular mt-1">
+                  02
+                </div>
+                <div class="m-3">
+                  <h6 class="mb-1">
+                    Every Type of Zoom Call Participant, Illustrrated by Cats
+                  </h6>
+                  <div>
+                    <small class="">
+                      Jack Shepherd in Tenderly
+                    </small>
+                    <small class="text-muted">
+                      <p class="card-text">
+                        May 20 - 6 min read <i class="fas fa-star"></i>
+                      </p>
+                    </small>
+                  </div>
+                </div>
+              </li>
+              <!-- 03 -->
+              <li class="d-flex mb-2">
+                <div class="num-popular mt-1">
+                  03
+                </div>
+                <div class="m-3">
+                  <h6 class="mb-1">
+                    Every Type of Zoom Call Participant, Illustrrated by Cats
+                  </h6>
+                  <div>
+                    <small class="">
+                      Jack Shepherd in Tenderly
+                    </small>
+                    <small class="text-muted">
+                      <p class="card-text">
+                        May 20 - 6 min read <i class="fas fa-star"></i>
+                      </p>
+                    </small>
+                  </div>
+                </div>
+              </li>
+              <!-- 04 -->
+              <li class="d-flex mb-2">
+                <div class="num-popular mt-1">
+                  04
+                </div>
+                <div class="m-3">
+                  <h6 class="mb-1">
+                    Every Type of Zoom Call Participant, Illustrrated by Cats
+                  </h6>
+                  <div>
+                    <small class="">
+                      Jack Shepherd in Tenderly
+                    </small>
+                    <small class="text-muted">
+                      <p class="card-text">
+                        May 20 - 6 min read <i class="fas fa-star"></i>
+                      </p>
+                    </small>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </aside>
+          <footer class="d-none d-md-inline text-muted mt-3">
+            <a class="text-muted mr-3 t" href="#"> Help</a>
+            <a class="a-desk text-muted mr-3" href="#">Status</a>
+            <a class="text-muted mr-3" href="#">Writers</a>
+            <a class="text-muted mr-3" href="#">Blog</a>
+            <a class="text-muted mr-3" href="#">Careers</a>
+            <a class="text-muted mr-3" href="#">Privacy</a>
+            <a class="text-muted mr-3" href="#">Terms</a>
+            <a class="text-muted mr-3" href="#">About</a>
+          </footer>
+        </div>
+        <!-- fin aside CARDS POPULARES y footer -->
+        <!-- section 2-CARDS GENERALES -->
+        <div class="col-12 col-md-8 border-white">
+          <section class="mr-md-3">
+            <article class="mb-4">
+              <div class="row d-flex no-gutters">
+                <div class="col-8">
+                  <div class="pl-1 md-1">
+                    <p class="text-muted my-0">
+                      <small class="card-text">WOMEN Popular topic</small>
+                    </p>
+                    <h5 class="card-text my-0">
+                      I Abandoned My Family to Live in Costa Rica for 3
+                      Months — And It Saved My Life
+                    </h5>
+                    <p class="text-muted my-0 d-none d-md-inline">
+                      <small class="card-text">
+                        Being a “martyr mom” was only harming me.</small
+                      >
+                    </p>
+                    <div class="d-flex justify-content-between pr-2">
+                      <div>
+                        <small class="text-muted">
+                          <a href="#" class="text-dark">The Only Black Guy </a>
+                          <span class="text-dark">in</span>
+                          <a href="#" class="text-dark">the Office in LEVEL</a>
+                        </small>
+
+                        <small class="text-muted"
+                          ><p class="card-text">
+                            Mar 5 &#183; 5 min read
+                            <i class="p-2 fas fa-star"></i></p
+                        ></small>
+                      </div>
+                      <div class="font-weight-lighter text-muted">
+                        <i class="far fa-bookmark"></i>
+                        <a href="#" class="card-link text-dark text-muted"
+                          ><i class="fas fa-ellipsis-h ml-3"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <img
+                    src="img/img layout/0_YcGrjQcfzrDkAxAB.jpg"
+                    class="img-fluid"
+                    alt="Responsive image"
+                  />
+                </div>
+              </div>
+            </article>
+            <article class="mb-4">
+              <div class="row d-flex no-gutters">
+                <div class="col-8">
+                  <div class="pl-1 md-1">
+                    <p class="text-muted my-0">
+                      <small class="card-text">SCIENCE Popular topic</small>
+                    </p>
+                    <h5 class="card-text my-0">
+                      Jared Diamond: There’s a 49 Percent Chance the World As We
+                      Know It Will End by 2050
+                    </h5>
+                    <p class="text-muted my-0 d-none d-md-inline">
+                      <small class="card-text">By David Wallace-Wells</small>
+                    </p>
+                    <div class="d-flex justify-content-between pr-2">
+                      <div>
+                        <small class="text-muted">
+                          <a href="#" class="text-dark">Michael Ndubuaku </a>
+                          <span class="text-dark">in</span>
+                          <a href="#" class="text-dark">The Startup </a>
+                        </small>
+
+                        <small class="text-muted"
+                          ><p class="card-text">
+                            Jan 24 &#183; 17 min read
+                            <i class="p-2 fas fa-star"></i></p
+                        ></small>
+                      </div>
+                      <div class="font-weight-lighter text-muted">
+                        <i class="far fa-bookmark"></i>
+                        <a href="#" class="card-link text-dark text-muted"
+                          ><i class="fas fa-ellipsis-h ml-3"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <img
+                    src="img/img layout/0_pkP3CYVu2UR99mDQ.jpeg"
+                    class="img-fluid"
+                    alt="Responsive image"
+                  />
+                </div>
+              </div>
+            </article>
+            <article class="mb-4">
+              <div class="row d-flex no-gutters">
+                <div class="col-8">
+                  <div class="pl-1 md-1">
+                    <p class="text-muted my-0">
+                      <small class="card-text">WOMEN Popular topic</small>
+                    </p>
+                    <h5 class="card-text my-0">
+                      Being Called a Privileged White Karen on Twitter
+                    </h5>
+                    <p class="text-muted my-0 d-none d-md-inline">
+                      <small class="card-text"
+                        >By an even more privileged white man —  let’s chat
+                        about that.
+                      </small>
+                    </p>
+                    <div class="d-flex justify-content-between pr-2">
+                      <div>
+                        <small class="text-muted">
+                          <a href="#" class="text-dark">Elle Silver </a>
+                          <span class="text-dark">in</span>
+                          <a href="#" class="text-dark">An Injustice! </a>
+                        </small>
+
+                        <small class="text-muted"
+                          ><p class="card-text">
+                            Mar 29 &#183; 7 min read
+                            <i class="p-2 fas fa-star"></i></p
+                        ></small>
+                      </div>
+                      <div class="font-weight-lighter text-muted">
+                        <i class="far fa-bookmark"></i>
+                        <a href="#" class="card-link text-dark text-muted"
+                          ><i class="fas fa-ellipsis-h ml-3"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <img
+                    src="img/img layout/0_FBBRcIlU6IV9HwW7.jpg"
+                    class="img-fluid"
+                    alt="Responsive image"
+                  />
+                </div>
+              </div>
+            </article>
+            <article class="mb-4">
+              <div class="row d-flex no-gutters">
+                <div class="col-8">
+                  <div class="pl-1 md-1">
+                    <p class="text-muted my-0">
+                      <small class="card-text">POPULAR ON MEDIUM</small>
+                    </p>
+                    <h5 class="card-text my-0">
+                      The Rise of the American Idiot
+                    </h5>
+                    <p class="text-muted my-0 d-none d-md-inline">
+                      <small class="card-text"
+                        >Why the Rest of the World Doesn’t Know Whether to Be
+                        Baffled, Horrified, or Dumbstruck by America Right
+                        Now</small
+                      >
+                    </p>
+                    <div class="d-flex justify-content-between pr-2">
+                      <div>
+                        <small class="text-muted">
+                          <a href="#" class="text-dark">Simon Pitt </a>
+                          <span class="text-dark">in</span>
+                          <a href="#" class="text-dark">OneZero </a>
+                        </small>
+
+                        <small class="text-muted"
+                          ><p class="card-text">
+                            April 10 &#183; 19 min read
+                            <i class="p-2 fas fa-star"></i></p
+                        ></small>
+                      </div>
+                      <div class="font-weight-lighter text-muted">
+                        <i class="far fa-bookmark"></i>
+                        <a href="#" class="card-link text-dark text-muted"
+                          ><i class="fas fa-ellipsis-h ml-3"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <img
+                    src="img/img layout/0_bOR9tPnH3NaAjVNE.jpeg"
+                    class="img-fluid"
+                    alt="Responsive image"
+                  />
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+        <!-- fin section 2-CARDS GENERALES -->
+      </div>
+      <!-- FIN FILA 2  -->
+    </div>
+    <!-- FIN CONTENEDOR CONTENT-WRAPER -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Enlazando nuestro js -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

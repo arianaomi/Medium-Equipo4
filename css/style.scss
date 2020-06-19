@@ -1,0 +1,153 @@
+// ESTILO MOBILE
+/* tipografia*/
+@font-face {
+  font-family: "OpenSans";
+  src: url(../Open_Sans/OpenSans-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "OpenSans-B";
+  src: url(../Open_Sans/OpenSans-Bold.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+/* Fin tipografia*/
+/*Estilo body*/
+body {
+  font-family: "OpenSans";
+  box-sizing: border-box;
+}
+li {
+  a {
+    color: gray;
+  }
+}
+
+svg {
+  color: grey;
+  i {
+    font-size: 16px;
+  }
+  &:hover {
+    color: black;
+    background-color: white;
+  }
+}
+.btn {
+  border: 1px solid rgba(39, 38, 38, 0.801);
+  padding: 6 18px;
+  font-size: 12px;
+  &:hover {
+    color: black;
+    background-color: white;
+  }
+  &:active {
+    color: black;
+    background-color: white;
+  }
+}
+
+//modificando el menu
+.sticky-nav {
+  position: sticky; //Para que se quede fijo
+  top: 0; //en el top
+  background-color: white;
+  z-index: 1; //Este arriba de los demas objetos
+  height: 32px;
+  ul {
+    font-size: 14px;
+  }
+  i {
+    color: rgba(148, 145, 145, 0.384);
+    font-size: 1.2rem;
+    font-weight: light;
+  }
+}
+
+// dandole estilo al menu en mobile
+.ocultar {
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+}
+div aside > h3.h3-aside {
+  font-family: "OpenSans-B" !important;
+}
+
+.popular {
+  list-style: none;
+}
+.num-popular {
+  font-size: 32px;
+  color: rgba(107, 106, 106, 0.336);
+  font-family: "OpenSans";
+}
+h5 {
+  font-family: "OpenSans-B";
+  font-size: 18px;
+  cursor: pointer;
+}
+h6 {
+  font-family: "OpenSans-B";
+  font-size: 15px;
+  cursor: pointer;
+}
+footer {
+  font-size: 13px;
+  font-size: "OpenSans";
+}
+.p-card1 {
+  padding: 0px;
+  margin-top: 1rem;
+  padding-right: 33%;
+}
+
+.enlace {
+  font-size: 14px;
+  a {
+    text-decoration: none;
+    color: #03a87c;
+  }
+}
+.parafos-card {
+  font-size: 14px;
+}
+.nav-link:hover {
+  color: black;
+}
+// ESTILO PARA DESKTOP
+@media only screen and (min-width: 768px) {
+  .sticky-aside {
+    position: sticky;
+    top: 0;
+  }
+  .p-card1 {
+    padding: 0px;
+    margin-top: 1rem;
+  }
+  .mycard + img {
+    height: 100px;
+  }
+  nav {
+    //width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+    i {
+      margin: 0px 0px;
+      padding: 0;
+    }
+  }
+  .ocultar {
+    overflow-x: auto;
+
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .img-sec1 {
+    position: relative;
+    left: -50px;
+
+    width: 111%;
+  }
+}
