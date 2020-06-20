@@ -4,6 +4,7 @@
  */
 /* Var global scope */
 var postObject = {};
+var postObjectArr = [];
 
 /* Guardar la información del post creado*/
 const getNewPost = () => {
@@ -42,7 +43,7 @@ const printPostCard = (postObject, key) => {
       </div>
       <div class="col-md-8">
         <div class="card-body">
-        <a href="" class="showModal"><h5 class="card-title">${title}</h5></a>
+        <a class="showModal"><h5 class="card-title">${title}</h5></a>
         
         <h6>${autor}</h6>
           <p class="card-text">
@@ -63,12 +64,17 @@ const getPostDb = () => {
     function (response) {
       $.each(response, (key, value) => {
         printPostCard(value, key);
+        postObjectArr[key] = value;
       });
+      //addShowModalListeners();
     }
   );
 };
+console.log(postObjectArr);
+/*
 const printModal = (response) => {
   let { title, autor, contenido, image, date } = response;
+
   $(".articleModal").find(".modal-content").append(`<div class="modal-header">
   <h3 class="">${title}</h3>
   <h6 class="modal-autor ">${autor}</h6>
@@ -82,7 +88,7 @@ const printModal = (response) => {
   </button>
 </div>
 <div class="modal-body">
-  <img src="${image}" alt="" width=100% />
+  <img src="${image}" alt="" width=100%/>
   <p>${contenido}</p>
 </div>
 <div class="modal-footer">
@@ -99,6 +105,7 @@ const printModal = (response) => {
 };
 
 const getModalDb = (key) => {
+  console.log(key);
   $.get(
     `https://ajaxclass-1ca34.firebaseio.com/mediumBlog/Equipo4/post/${key}.json`,
     function (response) {
@@ -114,22 +121,26 @@ const conseguirModal = () => {
   console.log(key);
   console.log("hola");
   getModalDb(key);
-};
-/* Eventos  */
-$("button#sendPost").click(getNewPost); //Sube el newPost
+};*/
 
-/*const addShowModalListeners = () => {
+/*
+const addShowModalListeners = () => {
   let btnList = document.querySelectorAll(".showModal");
+  console.log(btnList);
   btnList.forEach((button) => {
+    console.log("hola" + button);
     button.addEventListener("click", conseguirModal);
   });
 };
 */
-const addShowModalListeners = () => {
-  $(".showModal").each(function () {
-    console.log(this);
-    //this.closest(".class");
-    //this.clik(conseguirModal);
-  });
-};
+/*const addShowModalListeners = () => {
+$(".showModal").each(function () {
+  console.log(this);
+  //this.closest(".class");
+  //this.clik(conseguirModal);
+});*/
+
+/* Eventos  */
+$("button#sendPost").click(getNewPost); //Sube el newPost
+
 getPostDb();
