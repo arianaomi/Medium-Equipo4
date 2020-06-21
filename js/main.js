@@ -8,7 +8,6 @@ var postObject = {};
 var postObjectArr = [];
 var postWithKeyObject = {};
 var postWithKeyObjectArr = [];
-var mostRecent;
 
 /* Dynamic HTML */
 const loadContent = (contentUrl) => {
@@ -46,7 +45,7 @@ const saveNewPost = () => {
     postObject["compararFechas"] = milisegundos;
   });
   console.log(postObject);
-  //uploadPost(postObject);
+  uploadPost(postObject);
 };
 
 /* Sube al endpoint el post creado y nos regresa la llave con lo que lo guardo */
@@ -61,11 +60,11 @@ const uploadPost = (postObject) => {
 };
 
 /* Crear la card con los datos de db */
-const printPostSection1Card = (postObject, key) => {
+const printPostSection1Card = (container, postObject, key) => {
   let { title, subtitle, autor, image, date, postKey } = postObject;
-  let postWrapper = $(".general-1");
+  let postWrapper = $(container);
   postWrapper.innerHTML = "";
-  $(".general-1").append(`
+  $(container).append(`
   <article class="mb-4">
     <div class="row d-flex no-gutters">
       <div class="col-8">
@@ -109,24 +108,35 @@ const printPostSection1Card = (postObject, key) => {
   </article>`);
 };
 
-/* Request para obtener los post, imprimirlos y crear arreglo */
-const getPostDb = () => {
-  $.get(
-    "https://ajaxclass-1ca34.firebaseio.com/mediumBlog/Equipo4/post/.json",
-    function (response) {
-      $.each(response, (key, value) => {
-        printPostSection1Card(value, key);
-        postObject = response;
-        postObjectArr[key] = value;
-        postWithKeyObject = { ...value, postKey: key };
-        postWithKeyObjectArr.push(postWithKeyObject);
-      });
-      console.log(postWithKeyObjectArr);
-      addShowModalListeners();
-    }
-  );
+//Imprime la lista de los populares
+const printPostPoPular = (count, postObject, key) => {
+  let { title, autor, date } = postObject;
+
+  let postWrapper = $(".popular");
+  postWrapper.innerHTML = "";
+  $(".popular").append(`
+  <li class="d-flex mb-2">
+                <div class="num-popular mt-1">
+              0${count}
+                </div>
+                <div class="m-3">
+                <a  class="showModal"><h6 id="${key}"class="card-title">${title}</h6></a>
+                  <div>
+                    <small>
+                      ${autor}
+                    </small>
+                    <small class="text-muted">
+                      <p class="card-text">
+                        ${date}  - 6 min read <i class="fas fa-star"></i>
+                      </p>
+                    </small>
+                  </div>
+                </div>
+              </li>`);
 };
+//Creando array con los más recientes
 const getmostRecent = () => {
+  let mostRecent;
   mostRecent = postWithKeyObjectArr
     .sort(function (currentItem, nextItem) {
       return nextItem.compararFechas + currentItem.comprararFechas;
@@ -134,17 +144,67 @@ const getmostRecent = () => {
     .reverse()
     .splice(0, 5);
   console.log(mostRecent);
+  return mostRecent;
 };
-var mostPopular;
-
+//Creando array con los post populares
 const getmostPopular = () => {
+  let mostPopular;
+  let count = 1;
   mostPopular = postWithKeyObjectArr.filter((post) => {
     return post.popularFlag == true;
   });
   mostPopular = mostPopular.splice(0, 4);
   console.log(mostPopular);
+
+  return mostPopular;
 };
 
+//Funcion que imprimira todo
+const printDOM = () => {
+  let key;
+  let count = 1;
+  //let section1Arr = postWithKeyObjectArr.splice(0, 4);
+  //console.log(postWithKeyObjectArr);
+  let popular = [];
+  popular = getmostPopular();
+  let recent = [];
+  recent = getmostRecent();
+  console.log(recent);
+  console.log(popular);
+
+  popular.forEach((post) => {
+    key = post.postKey;
+    printPostPoPular(count, post, key);
+    count++;
+  });
+
+  recent.forEach((post) => {
+    key = post.postKey;
+    printPostSection1Card(".general-1", post, key);
+  });
+  postWithKeyObjectArr.forEach((post) => {
+    key = post.postKey;
+    printPostSection1Card(".general-2", post, key);
+  });
+};
+/* Request para obtener los post, imprimirlos y crear arreglo */
+const getPostDb = () => {
+  $.get(
+    "https://ajaxclass-1ca34.firebaseio.com/mediumBlog/Equipo4/post/.json",
+    function (response) {
+      $.each(response, (key, value) => {
+        //printPostSection1Card(value, key);
+        postObject = response;
+        postObjectArr[key] = value;
+        postWithKeyObject = { ...value, postKey: key };
+        postWithKeyObjectArr.push(postWithKeyObject);
+      });
+      printDOM();
+      //console.log(postWithKeyObjectArr);
+      addShowModalListeners();
+    }
+  );
+};
 /* Imprimir modal */
 const printModal = (selectedPost) => {
   let { title, subtitle, autor, content, image } = selectedPost;
