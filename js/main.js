@@ -6,20 +6,37 @@
 /* Var global scope */
 var postObject = {};
 var postObjectArr = [];
-
+var postResp = {};
+var postObjectArr2 = []
+var postsArray = []
 
 /* Guardar la información del post creado*/
-const getNewPost = () => {
+
+/*const getNewPost = () => {
       // instantiate a moment object
   var NowMoment = moment();
   let date = NowMoment.format('MMM-D');
-  console.log(date);
+  console.log(date);*/
+
+const saveNewPost = () => {
+  let date = new Date();
+  const months = ["Jan", "Feb", "Mar","Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dic"];
+let date2 = months[date.getMonth()] + " " +  date.getDate()
+  let milisegundos = date.getTime();
+  console.log(milisegundos);
+
+  let popularFlag = $(".form-check-input").is(":checked") ? true : false;
+  console.log(popularFlag);
+
   $(".form-control").each(function (index) {
     let value = $(this).val();
     let propertyKey = $(this).data("property-key");
     postObject[propertyKey] = value;
-    postObject["date"] = date;
+    postObject["date"] = date2;
+    postObject["popularFlag"] = popularFlag;
+    postObject["compararFechas"] = milisegundos;
   });
+  console.log(postObject);
   uploadPost(postObject);
 };
 
@@ -35,23 +52,24 @@ const uploadPost = (postObject) => {
 };
 
 /* Crear la card con los datos de db */
-const printPostCard = (postObject, key) => {
-  console.log(key);
-  //$("#cards-wrapper").empty();
-  let { title, autor, contenido, image, date } = postObject;
-  $("#cards-wrapper").append(`<div id="${key}"  class="col-6 oneCardWrapper">
+const printPostCard = (postObject) => {
+  let { title, subtitle, autor, image, date, postKey } = postObject;
+  let postWrapper = $("#cards-wrapper");
+  postWrapper.innerHTML = "";
+  $("#cards-wrapper")
+    .append(`<div   class="col-6 oneCardWrapper" height="300px" >
   <div class="card mb-3">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img src="${image}" class="card-img" alt="..." />
+    <div class="row d-flex no-gutters">
+      <div class="col-md-4 p-0">
+        <img src="${image}" height="300px" class="card-img" alt="..." />
       </div>
       <div class="col-md-8">
         <div class="card-body">
-        <a class="showModal"><h5 class="card-title">${title}</h5></a>
+        <a  class="showModal"><h5 id="${postKey}"class="card-title">${title}</h5></a>
         
         <h6>${autor}</h6>
-          <p class="card-text">
-          ${contenido}
+          <p class="card-text text-wrap" height="70%">
+          ${subtitle}
           </p>
           <p class="card-text">
             <small class="text-muted">${date}</small>
@@ -64,22 +82,29 @@ const printPostCard = (postObject, key) => {
 };
 
 
+var mostRecent
+/* Reques para obtener los post, imprimirlos y crear arreglo */
+//Aqui en el get se saca los más recientes
 const getPostDb = () => {
   $.get(
     "https://ajaxclass-1ca34.firebaseio.com/mediumBlog/Equipo4/post/.json",
     function (response) {
       $.each(response, (key, value) => {
-        printPostCard(value, key);
-        postObjectArr[key] = value;
+       // printPostCard(value, key);
+        postObject = { ...response[key], postKey:key}
+        postObjectArr.push(postObject)
+    
       });
-      //addShowModalListeners();
+      mostRecent = postObjectArr2.sort(function(currentItem, nextItem){
+        return nextItem.compararFechas - currentItem.comprararFechas
+    }).splice(0,5)
+      addShowModalListeners();    
       printGeneral1(postObjectArr);
       printGeneral2(postObjectArr);
-      
+          
     }
   );
 };
-
 
 
 
@@ -93,7 +118,7 @@ for(key in array){
         <p class="text-muted my-0">
           <small class="card-text">BUSINESS Popular topic</small>
         </p>
-        <h5 class="card-text my-0">
+        <h5 id="${array[key].postKey}" class="card-text my-0">
         ${array[key].title}
         </h5>
         <p class="text-muted my-0 d-none d-md-inline">
@@ -129,8 +154,9 @@ for(key in array){
     </div>
   </div>
 </article>`);
-}
+ }
 };
+
 
 //imprime post en la sección general 2. Se manda a llamar en la función getPostDb para obtener el array que regresa de la base de datos
 const printGeneral2 = (array) => { 
@@ -178,7 +204,7 @@ const printGeneral2 = (array) => {
         </div>
       </div>
     </article>`);
-    }
+    }(key)
     };
 
 // imprimir primera sección de recientes con el post en [0]
@@ -337,72 +363,42 @@ $(".style1").append(`<article class="mb-4 d-none d-lg-block">
 const printModal = (response) => {
   let { title, autor, contenido, image, date } = response;
 
-  $(".articleModal").find(".modal-content").append(`<div class="modal-header">
-  <h3 class="">${title}</h3>
-  <h6 class="modal-autor ">${autor}</h6>
-  <button
-    type="button"
-    class="close"modal-title
-    data-dismiss="modal"
-    aria-label="Close"
-  >
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="modal-body">
-  <img src="${image}" alt="" width=100%/>
-  <p>${contenido}</p>
-</div>
-<div class="modal-footer">
-  <button
-    type="button"
-    class="btn btn-secondary"
-    data-dismiss="modal"
-  >
-    Close
-  </button>
-</div>`);
-
-  $(".articleModal").modal("show");
+/* Imprimir modal */
+const printModal = (selectedPost) => {
+  let { title, subtitle, autor, content, image } = selectedPost;
+  $("#articleModal").find(".modal-content");
+  $("#articleModal").find(".modal-title").text(title);
+  $("#articleModal").find(".modal-subtitle").text(subtitle);
+  $("#articleModal").find(".modal-autor").text(autor);
+  $("#articleModal").find(".modal-img").attr("src", image);
+  $("#articleModal").find(".contenido").text(content);
+  $("#articleModal").modal("show");
 };
 
-const getModalDb = (key) => {
-  console.log(key);
-  $.get(
-    `https://ajaxclass-1ca34.firebaseio.com/mediumBlog/Equipo4/post/${key}.json`,
-    function (response) {
-      console.log(response);
-      printModal(response);
-    }
-  );
-};
-
+/* conseguir key de post para llamar la modal */
 const conseguirModal = () => {
-  //event.preventDefault();
-  let key = $(".oneCardWrapper").attr("id");
-  console.log(key);
-  console.log("hola");
-  getModalDb(key);
-};*/
-
-/*
-const addShowModalListeners = () => {
-  let btnList = document.querySelectorAll(".showModal");
-  console.log(btnList);
-  btnList.forEach((button) => {
-    console.log("hola" + button);
-    button.addEventListener("click", conseguirModal);
-  });
+  event.preventDefault();
+  let keyPost = $(event.target).attr("id");
+  console.log("key: " + keyPost);
+  let selectedPost = postObjectArr[keyPost];
+  printModal(selectedPost);
 };
-*/
-/*const addShowModalListeners = () => {
-$(".showModal").each(function () {
-  console.log(this);
-  //this.closest(".class");
-  //this.clik(conseguirModal);
-});*/
 
 /* Eventos  */
-$("button#sendPost").click(getNewPost); //Sube el newPost
+
+const addShowModalListeners = () => {
+  let aListener = document.querySelectorAll(".showModal");
+  console.log(aListener);
+  aListener.forEach((a) => {
+    //console.log("hola" + a);
+    a.addEventListener("click", conseguirModal);
+  });
+};
+$("button#sendPost").click(saveNewPost); //Sube el newPost
+
+var postObjectArr2 = postObjectArr;
+
+console.log(postObjectArr2)
+
 
 getPostDb();
