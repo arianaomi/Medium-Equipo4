@@ -7,8 +7,8 @@
 var postObject = {};
 var postObjectArr = [];
 var postResp = {};
-var postObjectArr2 = []
-var postsArray = []
+var postObjectArr2 = [];
+var postsArray = [];
 
 /* Guardar la información del post creado*/
 
@@ -20,13 +20,25 @@ var postsArray = []
 
 const saveNewPost = () => {
   let date = new Date();
-  const months = ["Jan", "Feb", "Mar","Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dic"];
-let date2 = months[date.getMonth()] + " " +  date.getDate()
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dic",
+  ];
+  let date2 = months[date.getMonth()] + " " + date.getDate();
   let milisegundos = date.getTime();
-  console.log(milisegundos);
-
+  //console.log(milisegundos);
   let popularFlag = $(".form-check-input").is(":checked") ? true : false;
-  console.log(popularFlag);
+  //console.log(popularFlag);
 
   $(".form-control").each(function (index) {
     let value = $(this).val();
@@ -36,7 +48,7 @@ let date2 = months[date.getMonth()] + " " +  date.getDate()
     postObject["popularFlag"] = popularFlag;
     postObject["compararFechas"] = milisegundos;
   });
-  console.log(postObject);
+  //console.log(postObject);
   uploadPost(postObject);
 };
 
@@ -46,6 +58,7 @@ const uploadPost = (postObject) => {
     "https://ajaxclass-1ca34.firebaseio.com/mediumBlog/Equipo4/post/.json",
     JSON.stringify(postObject),
     function (data) {
+      getPostDb();
       console.log(data);
     }
   );
@@ -81,8 +94,7 @@ const printPostCard = (postObject) => {
 </div>`);
 };
 
-
-var mostRecent
+var mostRecent;
 /* Reques para obtener los post, imprimirlos y crear arreglo */
 //Aqui en el get se saca los más recientes
 const getPostDb = () => {
@@ -90,28 +102,29 @@ const getPostDb = () => {
     "https://ajaxclass-1ca34.firebaseio.com/mediumBlog/Equipo4/post/.json",
     function (response) {
       $.each(response, (key, value) => {
-       // printPostCard(value, key);
-        postObject = { ...response[key], postKey:key}
-        postObjectArr.push(postObject)
-    
+        printPostCard(value, key);
+        postObject = { ...response[key], postKey: key };
+        postObjectArr.push(postObject);
       });
-      mostRecent = postObjectArr2.sort(function(currentItem, nextItem){
-        return nextItem.compararFechas - currentItem.comprararFechas
-    }).splice(0,5)
-      addShowModalListeners();    
-      printGeneral1(postObjectArr);
-      printGeneral2(postObjectArr);
-          
+      console.log(postObject);
+      console.log(postObjectArr);
+      mostRecent = postObjectArr
+        .sort(function (currentItem, nextItem) {
+          return nextItem.compararFechas - currentItem.comprararFechas;
+        })
+        .splice(0, 5);
+      addShowModalListeners();
+      console.log(mostRecent);
+      //printGeneral1(postObjectArr);
+      //printGeneral2(postObjectArr);
     }
   );
 };
 
-
-
 //imprime post en la sección general 1. Se manda a llamar en la función getPostDb para obtener el array que regresa de la base de datos
-const printGeneral1 = (array) => { 
-for(key in array){
-  $(".general-1").append(`<article class="mb-4">
+const printGeneral1 = (array) => {
+  for (key in array) {
+    $(".general-1").append(`<article class="mb-4">
   <div class="row d-flex">
     <div class="col-8">
       <div class="pl-1 md-1">
@@ -154,14 +167,13 @@ for(key in array){
     </div>
   </div>
 </article>`);
- }
+  }
 };
 
-
 //imprime post en la sección general 2. Se manda a llamar en la función getPostDb para obtener el array que regresa de la base de datos
-const printGeneral2 = (array) => { 
-    for(key in array){
-      $(".general-2").append(`<article class="mb-4">
+const printGeneral2 = (array) => {
+  for (key in array) {
+    $(".general-2").append(`<article class="mb-4">
       <div class="row d-flex">
         <div class="col-8">
           <div class="pl-1 md-1">
@@ -204,8 +216,9 @@ const printGeneral2 = (array) => {
         </div>
       </div>
     </article>`);
-    }(key)
-    };
+  }
+  key;
+};
 
 // imprimir primera sección de recientes con el post en [0]
 /*
@@ -265,7 +278,6 @@ const printGeneral2 = (array) => {
           </article>`);
      }
         */
-
 
 // imprimir primera sección de recientes con el post en [1,2,3]
 /*
@@ -396,9 +408,8 @@ const addShowModalListeners = () => {
 };
 $("button#sendPost").click(saveNewPost); //Sube el newPost
 
-var postObjectArr2 = postObjectArr;
+//var postObjectArr2 = postObjectArr;
 
-console.log(postObjectArr2)
-
+//console.log(postObjectArr2);
 
 getPostDb();
