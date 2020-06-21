@@ -10,6 +10,11 @@ var postResp = {};
 var postObjectArr2 = [];
 var postsArray = [];
 
+/* Dynamic HTML */
+const loadContent = (contentUrl) => {
+  $("#content-wrapper").load(contentUrl);
+};
+
 /* Guardar la información del post creado*/
 
 /*const getNewPost = () => {
@@ -36,9 +41,9 @@ const saveNewPost = () => {
   ];
   let date2 = months[date.getMonth()] + " " + date.getDate();
   let milisegundos = date.getTime();
-  //console.log(milisegundos);
+  console.log(milisegundos);
   let popularFlag = $(".form-check-input").is(":checked") ? true : false;
-  //console.log(popularFlag);
+  console.log(popularFlag);
 
   $(".form-control").each(function (index) {
     let value = $(this).val();
@@ -48,7 +53,7 @@ const saveNewPost = () => {
     postObject["popularFlag"] = popularFlag;
     postObject["compararFechas"] = milisegundos;
   });
-  //console.log(postObject);
+  console.log(postObject);
   uploadPost(postObject);
 };
 
@@ -406,7 +411,7 @@ const addShowModalListeners = () => {
     a.addEventListener("click", conseguirModal);
   });
 };
-$("button#sendPost").click(saveNewPost); //Sube el newPost
+//$("#sendFormPost").click(saveNewPost); //Sube el newPost
 
 //var postObjectArr2 = postObjectArr;
 

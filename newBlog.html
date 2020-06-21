@@ -1,11 +1,76 @@
-<!-- Aqui va la vista de agregar new post (formulario )
-    Datos:
-        1.Nombre post - input
-        2.Nombre del autor - input
-        3.contenido - textarea
-        4.imagen - input
-        5.botón de publicar  
--->
+<!-- Aqui va la vista de agregar new post (formulario ) -->
 <div class="row">
-    
+  <div class="col-12">
+    <!-- Formulario -->
+    <form class="border p-3 my-5">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">title</label>
+          <input
+            type="text"
+            class="form-control input"
+            data-property-key="title"
+            id="inputEmail4"
+          />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">autor</label>
+          <input
+            type="text"
+            class="form-control input"
+            data-property-key="autor"
+            id="inputPassword4"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">subtitle</label>
+        <input
+          type="text"
+          class="form-control input"
+          data-property-key="subtitle"
+          id="inputAddress"
+          placeholder="1234 Main St"
+        />
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">contenido</label>
+        <input
+          type="text"
+          class="form-control input"
+          data-property-key="content"
+          id="inputAddress"
+          placeholder="1234 Main St"
+        />
+      </div>
+      <div class="form-group">
+        <label for="inputAddress2">image</label>
+        <input
+          type="text"
+          class="form-control input"
+          data-property-key="image"
+          id="inputAddress2"
+          placeholder="Apartment, studio, or floor"
+        />
+      </div>
+      <div class="form-group form-check">
+        <input
+          type="checkbox"
+          class="form-check-input input"
+          data-property-key="popularFlag"
+          id="exampleCheck1"
+          value=""
+        />
+        <label class="form-check-label" for="exampleCheck1">Popular</label>
+      </div>
+      <button
+        id="sendPost"
+        type="button"
+        class="col-3 col-md-6 btn btn-primary" onclick="saveNewPost()"
+        
+      >
+        Publicar
+      </button>
+    </form>
+  </div>
 </div>
