@@ -96,12 +96,13 @@ const getPostDb = () => {
       }); 
       printGeneral1(postObjectArr);
       printGeneral2(postObjectArr);
-      recentPost1(postObjectArr);  
-      recentPost2(postObjectArr); 
       mostRecent = postObjectArr2.sort(function(currentItem, nextItem){
         return nextItem.compararFechas - currentItem.comprararFechas
     }).splice(0,5)
-      addShowModalListeners();     
+      addShowModalListeners(); 
+      recentPost1(mostRecent);  
+      recentPost2(mostRecent); 
+      recentPost3(mostRecent)    
     }
   );
 };
@@ -258,50 +259,7 @@ const printGeneral2 = (array) => {
      }
         
 
-
-     /*
-     <article class="mb-4">
-     <div class="row d-flex flex-row-reverse flex-md-row no-gutters">
-       <div class="col-4">
-         <img
-           src=${image}
-           class="ml-4 ml-md-0"
-         />
-       </div>
-       <div class="col-8 col-">
-         <div class="pl-md-2">
-            <a  class="showModal"><h6 id="${postKey}"class="card-title">${title}</h6></a>
-           <div class="d-flex justify-content-between">
-             <div>
-               <small class="text-muted">
-                 <a href="#" class="text-dark">${autor} </a>
-                 <span class="text-dark">in</span>
-                 <a href="#" class="text-dark">Heated </a>
-               </small>
-
-               <small class="text-muted"
-                 ><p class="card-text">
-                   ${date}  &#183; 6 min read
-                   <i class="p-2 fas fa-star"></i></p
-               ></small>
-             </div>
-             <div class="font-weight-lighter text-muted">
-               <i
-                 class="far fa-bookmark d-md-none d--inline-block"
-               ></i>
-               <a href="#" class="card-link text-dark text-muted"
-                 ><i class="fas fa-ellipsis-h ml-3"></i
-               ></a>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-   </article>
-   */
-   
 //imprimir primera sección de recientes con el post en [1,2,3]
-
 const recentPost2 = (array) => {
     for(let i=1; i<=3; i++){
     let { title, autor, image, date, postKey } = array[i];
@@ -343,37 +301,33 @@ const recentPost2 = (array) => {
     }
 }
 
-
 // imprimir primera sección de recientes con el post en [4]
-/*
-let { title, autor, contenido, image, date } = array1[4]
-$(".style1").append(`<article class="mb-4 d-none d-lg-block">
+let { title, autor, contenido, image, date } = array[4]
+$(".style3").append(`<article class="mb-4 d-none d-lg-block">
             <div class="card text-left border-white">
               <img
                 height="150"
-                src=${array1[key].image}
+                src=${image}
                 class="card-img-top"
               />
               <div class="mt-2 mr-5 text-left p-card3">
-                <h5 class="text-left">
-                  ${array1[key].title}
-                </h5>
+              
                 <p class="text-muted parafos-card">
-                  ${array1[key].contenido}
+                  ${contenido}
                 </p>
-
+                <a class="showModal"><h6 id="${postKey}"class="card-title">${title}</h6></a>
                 <p></p>
                 <div class="d-flex justify-content-between">
                   <div>
                     <small class="text-muted">
-                      <a href="#" class="text-dark"> ${array1[key].autor} </a>
+                      <a href="#" class="text-dark"> ${autor} </a>
                       <span class="text-dark">in</span>
                       <a href="#" class="text-dark">Payne </a>
                     </small>
 
                     <small class="text-muted"
                       ><p class="card-text">
-                       ${array1[key].date} &middot; 5 min read
+                       ${date} &middot; 5 min read
                         <i class="p-2 fas fa-star"></i></p
                     ></small>
                   </div>
@@ -388,7 +342,6 @@ $(".style1").append(`<article class="mb-4 d-none d-lg-block">
             </div>
           </article>`);
 
-*/
 /*
 const printModal = (response) => {
   let { title, autor, contenido, image, date } = response;
