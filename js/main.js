@@ -91,22 +91,20 @@ const getPostDb = () => {
     function (response) {
       $.each(response, (key, value) => {
        // printPostCard(value, key);
-        postObject = { ...response[key], postKey:key}
+        postObject = {...response[key], postKey:key}
         postObjectArr.push(postObject)
-    
-      });
+      }); 
+      printGeneral1(postObjectArr);
+      printGeneral2(postObjectArr);
+      recentPost1(postObjectArr);  
+      recentPost2(postObjectArr); 
       mostRecent = postObjectArr2.sort(function(currentItem, nextItem){
         return nextItem.compararFechas - currentItem.comprararFechas
     }).splice(0,5)
-      addShowModalListeners();    
-      printGeneral1(postObjectArr);
-      printGeneral2(postObjectArr);
-          
+      addShowModalListeners();     
     }
   );
 };
-
-
 
 //imprime post en la sección general 1. Se manda a llamar en la función getPostDb para obtener el array que regresa de la base de datos
 const printGeneral1 = (array) => { 
@@ -118,9 +116,7 @@ for(key in array){
         <p class="text-muted my-0">
           <small class="card-text">BUSINESS Popular topic</small>
         </p>
-        <h5 id="${array[key].postKey}" class="card-text my-0">
-        ${array[key].title}
-        </h5>
+        <a  class="showModal"><h5 id="${array[key].postKey}"class="card-title">${array[key].title}</h5></a>
         <p class="text-muted my-0 d-none d-md-inline">
           <small class="card-text">${array[key].contenido}</small>
         </p>
@@ -168,9 +164,7 @@ const printGeneral2 = (array) => {
             <p class="text-muted my-0">
               <small class="card-text">BUSINESS Popular topic</small>
             </p>
-            <h5 class="card-text my-0">
-            ${array[key].title}
-            </h5>
+            <a  class="showModal"><h5 id="${array[key].postKey}"class="card-title">${array[key].title}</h5></a>
             <p class="text-muted my-0 d-none d-md-inline">
               <small class="card-text">${array[key].contenido}</small>
             </p>
@@ -204,40 +198,38 @@ const printGeneral2 = (array) => {
         </div>
       </div>
     </article>`);
-    }(key)
+    }
     };
 
+
 // imprimir primera sección de recientes con el post en [0]
-/*
- 
-     const recentPost = (array1) => {
-      let { title, autor, contenido, image, date } = array1[0];
+
+     const recentPost1 = (array) => {
+      let { title, autor, contenido, image, date, postKey } = array[0];
          //destructuración del objeto específico del arreglo
             $(".style1").append(`<article class="mb-4">
             <div class="card text-left border-white">
               <img
                 height="150"
-                src=${array1[key].image}
+                src=${image}
                 class="card-img-top img-sec1"
               />
               <div class="card-body text-left p-card1">
-                <h5 class="text-left">
-                  ${array1[key].title}
-                </h5>
+              <a  class="showModal"><h5 id="${postKey}"class="card-title">${title}</h5></a>
                 <p class="text-muted parafos-card">
-                  ${array1[key].contenido}
+                  ${contenido}
                 </p>
                 <div class="d-flex justify-content-between">
                   <div>
                     <small class="text-muted">
-                      <a href="#" class="text-dark"> ${array1[key].autor} </a>
+                      <a href="#" class="text-dark"> ${autor} </a>
                       <span class="text-dark">in</span>
                       <a href="#" class="text-dark">Mind cafe </a>
                     </small>
 
                     <small class="text-muted"
                       ><p class="card-text">
-                        ${array1[key].date} &middot; 6 min read
+                        ${date} &middot; 6 min read
                         <i class="p-2 fas fa-star"></i></p
                     ></small>
                   </div>
@@ -264,55 +256,93 @@ const printGeneral2 = (array) => {
             </div>
           </article>`);
      }
-        */
+        
 
 
-// imprimir primera sección de recientes con el post en [1,2,3]
-/*
-var arraySection2 = []
-for(key in array){
- $(".style1").append(`<article class="mb-4">
-              <div class="row d-flex flex-row-reverse flex-md-row no-gutters">
-                <div class="col-4">
-                  <img
-                    src=${array1[key].image}
-                    class="ml-4 ml-md-0"
-                  />
-                </div>
-                <div class="col-8 col-">
-                  <div class="pl-md-2">
-                    <h6 class="">
-                      ${array1[key].title}
-                    </h6>
-                    <div class="d-flex justify-content-between">
-                      <div>
-                        <small class="text-muted">
-                          <a href="#" class="text-dark">${array1[key].autor} </a>
-                          <span class="text-dark">in</span>
-                          <a href="#" class="text-dark">Heated </a>
-                        </small>
+     /*
+     <article class="mb-4">
+     <div class="row d-flex flex-row-reverse flex-md-row no-gutters">
+       <div class="col-4">
+         <img
+           src=${image}
+           class="ml-4 ml-md-0"
+         />
+       </div>
+       <div class="col-8 col-">
+         <div class="pl-md-2">
+            <a  class="showModal"><h6 id="${postKey}"class="card-title">${title}</h6></a>
+           <div class="d-flex justify-content-between">
+             <div>
+               <small class="text-muted">
+                 <a href="#" class="text-dark">${autor} </a>
+                 <span class="text-dark">in</span>
+                 <a href="#" class="text-dark">Heated </a>
+               </small>
 
-                        <small class="text-muted"
-                          ><p class="card-text">
-                           ${array1[key].date}  &#183; 6 min read
-                            <i class="p-2 fas fa-star"></i></p
-                        ></small>
-                      </div>
-                      <div class="font-weight-lighter text-muted">
-                        <i
-                          class="far fa-bookmark d-md-none d--inline-block"
-                        ></i>
-                        <a href="#" class="card-link text-dark text-muted"
-                          ><i class="fas fa-ellipsis-h ml-3"></i
-                        ></a>
-                      </div>
+               <small class="text-muted"
+                 ><p class="card-text">
+                   ${date}  &#183; 6 min read
+                   <i class="p-2 fas fa-star"></i></p
+               ></small>
+             </div>
+             <div class="font-weight-lighter text-muted">
+               <i
+                 class="far fa-bookmark d-md-none d--inline-block"
+               ></i>
+               <a href="#" class="card-link text-dark text-muted"
+                 ><i class="fas fa-ellipsis-h ml-3"></i
+               ></a>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </article>
+   */
+   
+//imprimir primera sección de recientes con el post en [1,2,3]
+
+const recentPost2 = (array) => {
+    for(let i=1; i<=3; i++){
+    let { title, autor, image, date, postKey } = array[i];
+            $(".style2").append(`<article class="mb-4">
+            <div class="row d-flex flex-row-reverse flex-md-row no-gutters">
+              <div class="col-4">
+                <img src=${image} class="ml-4 ml-md-0 w-100"/>
+              </div>
+              <div class="col-8 col-">
+                <div class="pl-md-2">
+                   <a  class="showModal"><h6 id="${postKey}"class="card-title">${title}</h6></a>
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <small class="text-muted">
+                        <a href="#" class="text-dark">${autor} </a>
+                        <span class="text-dark">in</span>
+                        <a href="#" class="text-dark">Heated </a>
+                      </small>
+       
+                      <small class="text-muted"
+                        ><p class="card-text">
+                          ${date}  &#183; 6 min read
+                          <i class="p-2 fas fa-star"></i></p
+                      ></small>
+                    </div>
+                    <div class="font-weight-lighter text-muted">
+                      <i
+                        class="far fa-bookmark d-md-none d--inline-block"
+                      ></i>
+                      <a href="#" class="card-link text-dark text-muted"
+                        ><i class="fas fa-ellipsis-h ml-3"></i
+                      ></a>
                     </div>
                   </div>
                 </div>
               </div>
-            </article>`);
+            </div>
+          </article>`);
+    }
 }
-*/
+
 
 // imprimir primera sección de recientes con el post en [4]
 /*
