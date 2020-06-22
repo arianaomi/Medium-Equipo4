@@ -116,6 +116,15 @@ footer {
 .nav-link:hover {
   color: black;
 }
+///
+.general3cards {
+  height: 109px;
+}
+.img3cards {
+  height: 100%;
+  width: 90%;
+}
+
 // ESTILO PARA DESKTOP
 @media only screen and (min-width: 768px) {
   .sticky-aside {
@@ -149,5 +158,8 @@ footer {
     left: -50px;
 
     width: 111%;
+  }
+  .img3cards {
+    width: 100%;
   }
 }

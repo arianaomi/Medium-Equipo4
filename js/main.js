@@ -9,7 +9,6 @@ var postObjectArr = [];
 var postWithKeyObject = {};
 var postWithKeyObjectArr = [];
 
-
 /* Dynamic HTML */
 const loadContent = (contentUrl) => {
   $("#content-wrapper").load(contentUrl);
@@ -46,7 +45,7 @@ const saveNewPost = () => {
     postObject["compararFechas"] = milisegundos;
   });
   console.log(postObject);
-  uploadPost(postObject);
+  //uploadPost(postObject);
 };
 
 /* Sube al endpoint el post creado y nos regresa la llave con lo que lo guardo */
@@ -55,7 +54,8 @@ const uploadPost = (postObject) => {
     "https://ajaxclass-1ca34.firebaseio.com/mediumBlog/Equipo4/post/.json",
     JSON.stringify(postObject),
     function (data) {
-      console.log(data);
+      $("#successModal").modal("show");
+      //console.log(data);
     }
   );
 };
@@ -66,14 +66,14 @@ const printGeneralCard = (container, postObject, key) => {
   let postWrapper = $(container);
   postWrapper.innerHTML = "";
   $(container).append(`
-  <article class="mb-4">
+  <article class="my-4 generalCards">
     <div class="row d-flex no-gutters">
       <div class="col-8">
         <div class="pl-1 md-1">
           <p class="text-muted my-0">
             <small class="card-text">BUSINESS Popular topic</small>
           </p>
-          <a  class="showModal"><h5 id="${key}"class="card-title">${title}</h5></a>
+          <a  class="showModal"><h5 id="${key}"class="card-title mr-1 mr-md-0">${title}</h5></a>
           <p class="text-muted my-0 d-none d-md-inline">
             <small class="card-text">${subtitle}</small>
           </p>
@@ -85,23 +85,34 @@ const printGeneralCard = (container, postObject, key) => {
 
               <small class="text-muted"
                 ><p class="card-text">
-                  ${date}
-                  <i class="p-2 fas fa-star"></i></p
+                  ${date}  <small> ★</small></p
               ></small>
             </div>
-            <div class="font-weight-lighter text-muted">
-              <i class="far fa-bookmark"></i>
-              <a href="#" class="card-link text-dark text-muted"
-                ><i class="fas fa-ellipsis-h ml-3"></i
-              ></a>
-            </div>
+            <div class="font-weight-lighter text-muted mr-3">
+            <svg class="bi bi-bookmark mr-2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 12l5 3V3a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12l5-3zm-4 1.234l4-2.4 4 2.4V3a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10.234z"/>
+          </svg>
+          <svg
+            class="bi bi-three-dots"
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+            />
+          </svg>
+        </div>
           </div>
         </div>
       </div>
       <div class="col-4">
         <img
           src="${image}"
-          class="img-fluid"
+          class="img-fluid w-100  imgeneral"
           alt="Responsive image"
         />
       </div>
@@ -135,11 +146,12 @@ const printRecents1 = (container, postObject, key) => {
 
           <small class="text-muted"
             ><p class="card-text">
-              ${date} &middot; 6 min read
+              ${date} &middot; 6 min read <small> ★</small>
               <i class="p-2 fas fa-star"></i></p
           ></small>
         </div>
         <div class="font-weight-lighter text-muted">
+        
           <svg
             class="bi bi-three-dots"
             width="1em"
@@ -153,9 +165,6 @@ const printRecents1 = (container, postObject, key) => {
               d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
             />
           </svg>
-          <a href="#" class="card-link text-dark text-muted"
-            ><i class="fas fa-ellipsis-h ml-3"></i
-          ></a>
         </div>
       </div>
     </div>
@@ -167,10 +176,10 @@ const printRecents2 = (container, postObject, key) => {
   let { title, subtitle, autor, image, date, postKey } = postObject;
   let postWrapper = $(container);
   postWrapper.innerHTML = "";
-  $(container).append(`<article class="mb-4">
+  $(container).append(`<article class=" general3cards mb-4">
   <div class="row d-flex flex-row-reverse flex-md-row no-gutters">
     <div class="col-4">
-      <img src=${image} class="ml-4 ml-md-0 w-100"/>
+      <img src=${image} class=" ml-1 ml-md-0 ml-md-0 img3cards  "/>
     </div>
     <div class="col-8 col-">
       <div class="pl-md-2">
@@ -185,18 +194,25 @@ const printRecents2 = (container, postObject, key) => {
 
             <small class="text-muted"
               ><p class="card-text">
-                ${date}  &#183; 6 min read
-                <i class="p-2 fas fa-star"></i></p
+                ${date}  &#183; 6 min read <small> ★</small>
+              </p
             ></small>
           </div>
           <div class="font-weight-lighter text-muted">
-            <i
-              class="far fa-bookmark d-md-none d--inline-block"
-            ></i>
-            <a href="#" class="card-link text-dark text-muted"
-              ><i class="fas fa-ellipsis-h ml-3"></i
-            ></a>
-          </div>
+          <svg
+            class="bi bi-three-dots"
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+            />
+          </svg>
+        </div>
         </div>
       </div>
     </div>
@@ -230,15 +246,24 @@ const printRecents3 = (container, postObject, key) => {
           </small>
           <small class="text-muted"
             ><p class="card-text">
-            ${date} &middot; 5 min read
-              <i class="p-2 fas fa-star"></i></p
+            ${date} &middot; 5 min read <small> ★</small>
+              </p
           ></small>
         </div>
         <div class="font-weight-lighter text-muted">
-          <i class="far fa-bookmark d-md-none d--inline-block"></i>
-          <a href="#" class="card-link text-dark"
-            ><i class="fas fa-ellipsis-h ml-3"></i
-          ></a>
+          <svg
+            class="bi bi-three-dots"
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+            />
+          </svg>
         </div>
       </div>
     </div>
@@ -264,7 +289,7 @@ const printPostPoPular = (count, postObject, key) => {
                     </small>
                     <small class="text-muted">
                       <p class="card-text">
-                        ${date}  - 6 min read <i class="fas fa-star"></i>
+                        ${date}  - 6 min read <small> ★</small>
                       </p>
                     </small>
                   </div>
@@ -274,12 +299,13 @@ const printPostPoPular = (count, postObject, key) => {
 //Creando array con los más recientes
 const getmostRecent = () => {
   let mostRecent;
-  mostRecent = postWithKeyObjectArr.sort(function (currentItem, nextItem) {
+  mostRecent = postWithKeyObjectArr
+    .sort(function (currentItem, nextItem) {
       return nextItem.compararFechas + currentItem.comprararFechas;
     })
     .reverse()
     .slice(0, 5);
-    console.log(mostRecent)
+  console.log(mostRecent);
   return mostRecent;
 };
 
@@ -290,17 +316,18 @@ const getmostPopular = () => {
   //postWithKeyObjectArr3 = postWithKeyObjectArr
   mostPopular = postWithKeyObjectArr.filter((post) => {
     return post.popularFlag == true;
-  });console.log(postWithKeyObjectArr)
+  });
+  console.log(postWithKeyObjectArr);
   mostPopular = mostPopular.slice(0, 4);
-  console.log(mostPopular)
+  console.log(mostPopular);
   return mostPopular;
 };
 
 const general1 = () => {
-  let general1
+  let general1;
   //postWithKeyObjectArr4 = postWithKeyObjectArr
-  general1 = postWithKeyObjectArr.slice(2,6)
-  console.log(general1)
+  general1 = postWithKeyObjectArr.slice(2, 6);
+  console.log(general1);
   return general1;
 };
 
@@ -308,19 +335,19 @@ const general1 = () => {
 const printDOM = () => {
   let key;
   let count = 1;
-  let generalPosts1 = []
+  let generalPosts1 = [];
   //let section1Arr = postWithKeyObjectArr.splice(0, 4);
   //console.log(postWithKeyObjectArr);
   let popular = [];
   popular = getmostPopular();
   let recent = [];
   recent = getmostRecent();
-  generalPosts1 = general1()
+  generalPosts1 = general1();
   console.log(recent);
   console.log(popular);
-  let section1Recents = recent.slice(0,1)
-  let section2Recents = recent.slice(1,4)
-  let section3Recents = recent.slice(4,5)
+  let section1Recents = recent.slice(0, 1);
+  let section2Recents = recent.slice(1, 4);
+  let section3Recents = recent.slice(4, 5);
 
   popular.forEach((post) => {
     key = post.postKey;
@@ -339,18 +366,20 @@ const printDOM = () => {
   section1Recents.forEach((post) => {
     key = post.postKey;
     printRecents1(".style1", post, key);
-  });console.log(section2Recents)
+  });
+  console.log(section2Recents);
 
   section2Recents.forEach((post) => {
     key = post.postKey;
     printRecents2(".style2", post, key);
-  });console.log(section2Recents)
+  });
+  console.log(section2Recents);
 
   section3Recents.forEach((post) => {
     key = post.postKey;
     printRecents3(".style3", post, key);
-  });console.log(section3Recents)
-  
+  });
+  console.log(section3Recents);
 };
 /* Request para obtener los post, imprimirlos y crear arreglo */
 const getPostDb = () => {
@@ -359,7 +388,7 @@ const getPostDb = () => {
     function (response) {
       $.each(response, (key, value) => {
         //printPostSection1Card(value, key);
-       // postObject = response;
+        // postObject = response;
         postObjectArr[key] = value;
         postWithKeyObject = { ...value, postKey: key };
         postWithKeyObjectArr.push(postWithKeyObject);
