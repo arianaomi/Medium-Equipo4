@@ -444,30 +444,4 @@ window.addEventListener("scroll", (event) => {
       })
     : null;
 });
-/* Menu  */
-let viewporWigth = $(window).innerWidth();
-
-console.log(viewporWigth);
-
-const navbarScroll = (event) => {
-  console.log(event.target);
-  let direction = $(event.target).data("scroll-direction");
-  console.log(direction);
-
-  if (direction == "left" && viewporWigth < 1024) {
-    $("ul.ocultar").animate({ scrollLeft: "-=50px" }, "fast");
-    console.log($("ul.ocultar").scrollLeft());
-  } else if (direction == "right" && viewportWigth < 1024) {
-    $("ul.ocultar").animate({ scrollLeft: "+=50px" }, "fast");
-    console.log($("ul.ocultar").scrollLeft());
-  } /*else if (direction == "left" && viewportWigth > 1024) {
-    $(".ocultar").animate({ scrollLeft: "0px" }, "fast");
-    $(".nav-control").toggleClass("text-muted");
-  } else if (direction == "right" && viewportWigth > 1024) {
-    $(".ocultar").animate({ scrollLeft: "1000px" }, "fast");
-    $(".nav-control").toggleClass("text-muted");
-  }*/
-};
-
-$(".nav-control").click(navbarScroll);
 getPostDb();
