@@ -53,48 +53,49 @@ svg {
 }
 
 //modificando el menu
-.sticky-nav {
-  position: sticky; //Para que se quede fijo
-  top: 0; //en el top
-  background-color: white;
-  z-index: 1; //Este arriba de los demas objetos
-  height: 32px;
-  width: 98%;
+nav{
+  position:sticky;
+  top:0;
+  width:100%;
   .nav-control {
-    position: absolute;
-    top: 5px;
-    &.left {
-      left: 0;
+    color: rgba(148, 145, 145, 0.384);
+    font-size: 1rem;
+    font-weight: light;
+    position:absolute;
+    top:5px;
+    &.left{
+      left:0;
     }
-    &.right {
-      right: 0;
-    }
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-    width: calc(100%-80px);
-    white-space: nowrap;
-    overflow-x: auto;
-    //margin-left: 40px;
-    margin-right: 30px;
-    font-size: 14px;
-    li {
-      display: inline-block;
-      margin-right: 20px;
-    }
-    &::-webkit-scrollbar {
-      display: none;
+    &.right{
+      right:0;
     }
   }
 }
 
-// dandole estilo al menu en mobile
-.ocultar {
-  overflow-x: hidden;
-  display: flex;
-  flex-wrap: nowrap;
+
+  ul {
+    //font-size: 14px;
+    list-style:none;
+    padding:0;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    width: calc (100%-80px);
+   margin-left: 40px;
+   margin-right: 40px;
+   li{
+    display: inline-block;
+    margin-right:20px;
+   }
+   &::-webkit-scrollbar{
+     display:none;
+   }
+  }
+  
 }
+
+// dandole estilo al menu en mobile
+
 div aside > h3.h3-aside {
   font-family: "OpenSans-B" !important;
 }
@@ -250,21 +251,7 @@ form {
   .mycard + img {
     height: 100px;
   }
-  nav {
-    //width: 88%;
-    margin-left: auto;
-    margin-right: auto;
-    i {
-      margin: 0px 0px;
-      padding: 0;
-    }
-  }
-  .ocultar {
-    overflow-x: auto;
-
-    display: flex;
-    flex-wrap: nowrap;
-  }
+  
   .img-sec1 {
     position: relative;
     left: -50px;

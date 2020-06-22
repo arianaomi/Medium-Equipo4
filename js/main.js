@@ -445,3 +445,21 @@ window.addEventListener("scroll", (event) => {
     : null;
 });
 getPostDb();
+let viewportWidth = $(window).innerWidth();
+
+const navbarScroll = (direction) => {
+  if(direction === 'left' && viewportWidth < 1000){
+    $("#nav-inside").animate({scrollLeft : '-=50px'},
+    'fast')
+  }else if(direction === 'right' && viewportWidth < 1000){
+    $("#nav-inside").animate({scrollLeft : '+=50px'},
+    'fast')
+}else if(direction === 'left' && viewportWidth > 1000){
+  $("#nav-inside").animate({scrollLeft : '0px'},
+  'fast')
+}
+  else if(direction === 'right' && viewportWidth > 1000){
+    $("#nav-inside").animate({scrollLeft : '950px'},
+    'fast')
+  }
+}
