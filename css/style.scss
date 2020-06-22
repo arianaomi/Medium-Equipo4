@@ -49,12 +49,31 @@ svg {
 }
 
 //modificando el menu
+#nav-container{
+  width:90%;
+  position:relative;
+  overflow: hidden;
+  padding:10px
+  height: 100px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  #nav-inside{
+    position:absolute;
+    left:0;
+    white-space: nowrap;
+    transition: left 50ms ease;
+    display: inline-block;
+  }
+}
 .sticky-nav {
   position: sticky; //Para que se quede fijo
   top: 0; //en el top
   background-color: white;
   z-index: 1; //Este arriba de los demas objetos
   height: 32px;
+  width: 90%;
   ul {
     font-size: 14px;
   }
@@ -67,7 +86,6 @@ svg {
 
 // dandole estilo al menu en mobile
 .ocultar {
-  overflow-x: hidden;
   display: flex;
   flex-wrap: nowrap;
 }

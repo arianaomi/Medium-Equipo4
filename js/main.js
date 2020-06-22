@@ -402,3 +402,12 @@ const addShowModalListeners = () => {
   });
 };
 getPostDb();
+
+const moverIzquierda = (event) => {
+  $("#nav-inside").css({left:-830})
+};
+const moverDerecha = (event) => {
+  $("#nav-inside").css({left:0})
+};
+$("#izquierda").click(moverDerecha);
+$("#derecha").click(moverIzquierda);

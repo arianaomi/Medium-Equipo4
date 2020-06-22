@@ -23,6 +23,7 @@
       src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"
       type="text/javascript"
     ></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   </head>
 
   <body>
@@ -181,16 +182,18 @@
     </div>
     <!-- fin contenedor logo e iconos -->
     <!-- menu -->
+    <div class="d-flex justify-content-center" id="nav-general">
     <nav
-      class="sticky-nav d-flex justify-content-center align-items-center mt-3 pl-md-5"
+      class="sticky-nav d-flex justify-content-center align-items-center mt-3 pl-md-5 col-lg-7"
     >
-      <i class="fas fa-angle-left"></i>
-      <ul class="ocultar nav justify-content-center">
+       <a id="izquierda"><i class="fas fa-angle-left p-3"></i></a>
+       <div class="d-flex justify-content-center" id="nav-container">
+      <ul class="ocultar nav justify-content-center" id="nav-inside">
         <li class="nav-item">
           <a class="nav-link text-dark" href="#">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Popular</a>
+          <a class="nav-link active" href="#">POPULAR</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="#">MOMENTUM</a>
@@ -230,8 +233,10 @@
           <a class="nav-link" href="#">MORE</a>
         </li>
       </ul>
-      <i class="fas fa-angle-right"></i>
+    </div>
+      <a id="derecha"><i class="fas fa-angle-right p-3"></i></a>
     </nav>
+  </div>
     <!-- fin menu -->
     <!-- CONTENEDOR  DEL CUERPO DE LA PÁGINA -->
     <div id="content-wrapper" class="container mt-4">
