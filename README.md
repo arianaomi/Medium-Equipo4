@@ -8,4 +8,3 @@ _replica medium blog with functionality_
 
 - Juan Cundafé
 
-- Arturo Buendia
