@@ -53,18 +53,13 @@ svg {
   width:90%;
   position:relative;
   overflow: hidden;
-  padding:10px
-  height: 100px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
+  padding:10px;
+  height: 57px;
   #nav-inside{
     position:absolute;
     left:0;
     white-space: nowrap;
     transition: left 50ms ease;
-    display: inline-block;
   }
 }
 .sticky-nav {
