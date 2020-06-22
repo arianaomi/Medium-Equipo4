@@ -14,6 +14,10 @@
 }
 /* Fin tipografia*/
 /*Estilo body*/
+* {
+  text-decoration: none;
+  list-style: none;
+}
 body {
   font-family: "OpenSans";
   box-sizing: border-box;
@@ -124,6 +128,92 @@ footer {
   height: 100%;
   width: 90%;
 }
+//////
+.newPost {
+  padding: 0;
+  margin: 0;
+  z-index: 2;
+  background-color: whitesmokes;
+  li a {
+    display: block;
+    width: 100%;
+  }
+
+  li ul {
+    display: none;
+    position: absolute;
+    min-width: 140px;
+  }
+  li:hover > ul {
+    display: block;
+  }
+  li ul li {
+    position: relative;
+  }
+  li ul li ul {
+    top: 0px;
+  }
+}
+.segundonivel {
+  border-radius: 5px;
+  margin-left: -50%;
+  //margin-top: 7px;
+  margin-right: 0;
+  background-color: whitesmoke;
+  //margin-right: 20px;
+  //height: 100px;
+  li {
+    #btn-newPost {
+      margin: 10px 0px;
+      color: black;
+      font-weight: 100;
+      font-family: sans-serif;
+      margin-right: 20px;
+      text-decoration: none;
+      background-color: whitesmoke;
+
+      &:hover {
+        color: #18a2b8;
+        font-weight: 800;
+      }
+    }
+    p {
+      font-weight: 100;
+    font-family: sans-serif;
+    font-size: smaller;
+      margin-right: 20px;
+      text-decoration: none;
+      //background-color: whitesmoke;
+    }
+  }
+  hr{
+    
+  }
+}
+svg#file {
+  color: #18a2b8;
+  margin-top: 5px;
+  box-shadow: 5px 5px 5px #44858959;
+}
+.newPosth1 {
+  font-weight: 100;
+  font-family: sans-serif;
+}
+form {
+  border-radius: 5px;
+  label {
+    font-family: monospace;
+    font-size: x-large;
+  }
+  button {
+    border: none;
+    padding: 5px 0px;
+    border-radius: 5px;
+    &:hover {
+      box-shadow: 5px 5px 5px #9e9e9eb0;
+    }
+  }
+}
 
 // ESTILO PARA DESKTOP
 @media only screen and (min-width: 768px) {
@@ -161,5 +251,9 @@ footer {
   }
   .img3cards {
     width: 100%;
+  }
+  .segundonivel {
+    border-radius: 5px;
+    margin-left: -18px;
   }
 }

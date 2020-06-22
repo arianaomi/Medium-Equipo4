@@ -30,15 +30,13 @@
     <!-- Modal-1-->
     <div id="articleModal" class="modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
-        <div class="modal-content text-monospace">
-          <div class="modal-header">
+        <div class="modal-content">
+          <div class="modal-header text-monospace">
             <div class="d-flex flex-column text-center">
               <h3
                 class="modal-title align-self-center font-weight-bold mt-2"
               ></h3>
-              <h6
-                class="modal-autor align-self-center font-italic text-monospace"
-              ></h6>
+              <h6 class="modal-autor align-self-center font-italic"></h6>
               <p class="modal-subtitle my-2 text-secondary"></p>
             </div>
 
@@ -75,7 +73,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Articulo Publicado</h5>
+            <h5 class="modal-title">Artículo Publicado</h5>
             <button
               type="button"
               class="close"
@@ -86,7 +84,10 @@
             </button>
           </div>
           <div class="modal-body">
-            <p>Deseas ir al inicio?</p>
+            <p>
+              Regresar a la página principal - HOME <small> ★</small> Crear un
+              nuevo artículo-NEW POST
+            </p>
           </div>
           <div class="modal-footer">
             <a href="index.html"
@@ -97,11 +98,11 @@
 
             <button
               type="button"
-              class="btn btn-secondary"
+              class="btn btn-info"
               data-dismiss="modal"
               onclick="loadContent('newBlog.html')"
             >
-              AGREGAR NEW POST
+              NEW POST
             </button>
           </div>
         </div>
@@ -110,7 +111,7 @@
     <!-- Fin Modal 2 -->
     <!-- Fin modales -->
     <!-- contenedor logo e iconos -->
-    <div class="container pt-4">
+    <div class="logoeiconos container pt-4">
       <!-- Logo -->
       <div class="row">
         <div class="col-8">
@@ -197,21 +198,44 @@
             alt="logo"
           />
           <!-- Boton que llevar a crear Post  MODIFICAR LO QUE SE NECESITE -->
-          <a id="btn-newPost" onclick="loadContent('newBlog.html')" href="#">
-            <svg
-              class="bi bi-three-dots-vertical"
-              width="1em"
-              height="1em"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
-              />
-            </svg>
-          </a>
+
+          <!-- ------- -->
+          <ul class="newPost">
+            <li>
+              <a id="btn-newPost" href="#">
+                <svg
+                  class="bi bi-three-dots-vertical"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                  />
+                </svg>
+              </a>
+              <ul class="segundonivel">
+                <li>
+                  <a
+                    href=""
+                    id="btn-newPost"
+                    onclick="loadContent('newBlog.html',event)"
+                    >New Post</a
+                  >
+                </li>
+                <li><p>Stories</p></li>
+                <li><p>Series</p></li>
+                <li><p>Stories</p></li>
+                <hr />
+                <li><p>Help</p></li>
+                <li><p>Settings</p></li>
+                <li><p>Sign out</p></li>
+              </ul>
+            </li>
+          </ul>
           <!-- fin boton que llevara a crear post -->
         </div>
         <!-- fin iconos y bontonn -->
@@ -337,8 +361,7 @@
         <!-- fin aside CARDS POPULARES y footer -->
         <!-- section 2-CARDS GENERALES -->
         <div class="col-12 col-md-8 border-white">
-          <section class="mr-md-3 general-2">
-          </section>
+          <section class="mr-md-3 general-2"></section>
         </div>
         <!-- fin section 2-CARDS GENERALES -->
       </div>

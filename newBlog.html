@@ -1,20 +1,43 @@
 <!-- Aqui va la vista de agregar new post (formulario ) -->
-<div class="row">
+
+<div class="py-4 row">
+  <div class="col-12 d-flex align-items-cente">
+    <svg
+      id="file"
+      class="bi bi-file-text"
+      width="2em"
+      height="2em"
+      viewBox="0 0 16 16"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z"
+      />
+      <path
+        fill-rule="evenodd"
+        d="M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"
+      />
+    </svg>
+    <h1 class="newPosth1 ml-3 pb-3">Add New Post</h1>
+  </div>
   <div class="col-12">
     <!-- Formulario -->
-    <form class="border p-3 my-5">
+    <form class="border p-3 my-1">
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="inputEmail4">title</label>
+          <label for="inputEmail4">Title</label>
           <input
             type="text"
             class="form-control input"
             data-property-key="title"
             id="inputEmail4"
+            placeholder="Enter title here"
           />
         </div>
         <div class="form-group col-md-6">
-          <label for="inputPassword4">autor</label>
+          <label for="inputPassword4">Autor</label>
           <input
             type="text"
             class="form-control input"
@@ -24,33 +47,33 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="inputAddress">subtitle</label>
+        <label for="inputAddress">Subtitle</label>
         <input
           type="text"
           class="form-control input"
           data-property-key="subtitle"
           id="inputAddress"
-          placeholder="1234 Main St"
         />
       </div>
+      <div class="iconosNewPost"></div>
       <div class="form-group">
-        <label for="inputAddress">contenido</label>
+        <label for="inputAddress">Contenido</label>
         <textarea
+          cols="30"
+          rows="10"
           type="text"
           class="form-control input"
           data-property-key="content"
           id="inputAddress"
-          placeholder="1234 Main St"
         ></textarea>
       </div>
       <div class="form-group">
-        <label for="inputAddress2">image</label>
+        <label for="inputAddress2">Image(url) </label>
         <input
           type="text"
           class="form-control input"
           data-property-key="image"
           id="inputAddress2"
-          placeholder="Apartment, studio, or floor"
         />
       </div>
       <div class="form-group form-check">
@@ -66,7 +89,7 @@
       <button
         id="sendPost"
         type="button"
-        class="col-3 col-md-4 btn btn-info"
+        class="col-3 col-md-4 btn-info"
         onclick="saveNewPost()"
       >
         Publicar

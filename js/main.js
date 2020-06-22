@@ -10,7 +10,8 @@ var postWithKeyObject = {};
 var postWithKeyObjectArr = [];
 
 /* Dynamic HTML */
-const loadContent = (contentUrl) => {
+const loadContent = (contentUrl, event) => {
+  event.preventDefault();
   $("#content-wrapper").load(contentUrl);
 };
 /* Guardar la información del post creado*/
@@ -32,9 +33,9 @@ const saveNewPost = () => {
   ];
   let date2 = months[date.getMonth()] + " " + date.getDate();
   let milisegundos = date.getTime();
-  console.log(milisegundos);
+  //console.log(milisegundos);
   let popularFlag = $(".form-check-input").is(":checked") ? true : false;
-  console.log(popularFlag);
+  //console.log(popularFlag);
 
   $(".form-control").each(function (index) {
     let value = $(this).val();
@@ -44,8 +45,8 @@ const saveNewPost = () => {
     postObject["popularFlag"] = popularFlag;
     postObject["compararFechas"] = milisegundos;
   });
-  console.log(postObject);
-  //uploadPost(postObject);
+  //console.log(postObject);
+  uploadPost(postObject);
 };
 
 /* Sube al endpoint el post creado y nos regresa la llave con lo que lo guardo */
@@ -55,7 +56,7 @@ const uploadPost = (postObject) => {
     JSON.stringify(postObject),
     function (data) {
       $("#successModal").modal("show");
-      //console.log(data);
+      ////console.log(data);
     }
   );
 };
@@ -305,7 +306,7 @@ const getmostRecent = () => {
     })
     .reverse()
     .slice(0, 5);
-  console.log(mostRecent);
+  //console.log(mostRecent);
   return mostRecent;
 };
 
@@ -317,9 +318,9 @@ const getmostPopular = () => {
   mostPopular = postWithKeyObjectArr.filter((post) => {
     return post.popularFlag == true;
   });
-  console.log(postWithKeyObjectArr);
+  //console.log(postWithKeyObjectArr);
   mostPopular = mostPopular.slice(0, 4);
-  console.log(mostPopular);
+  //console.log(mostPopular);
   return mostPopular;
 };
 
@@ -327,7 +328,7 @@ const general1 = () => {
   let general1;
   //postWithKeyObjectArr4 = postWithKeyObjectArr
   general1 = postWithKeyObjectArr.slice(2, 6);
-  console.log(general1);
+  //console.log(general1);
   return general1;
 };
 
@@ -337,14 +338,14 @@ const printDOM = () => {
   let count = 1;
   let generalPosts1 = [];
   //let section1Arr = postWithKeyObjectArr.splice(0, 4);
-  //console.log(postWithKeyObjectArr);
+  ////console.log(postWithKeyObjectArr);
   let popular = [];
   popular = getmostPopular();
   let recent = [];
   recent = getmostRecent();
   generalPosts1 = general1();
-  console.log(recent);
-  console.log(popular);
+  //console.log(recent);
+  //console.log(popular);
   let section1Recents = recent.slice(0, 1);
   let section2Recents = recent.slice(1, 4);
   let section3Recents = recent.slice(4, 5);
@@ -367,19 +368,19 @@ const printDOM = () => {
     key = post.postKey;
     printRecents1(".style1", post, key);
   });
-  console.log(section2Recents);
+  ////console.log(section2Recents);
 
   section2Recents.forEach((post) => {
     key = post.postKey;
     printRecents2(".style2", post, key);
   });
-  console.log(section2Recents);
+  //console.log(section2Recents);
 
   section3Recents.forEach((post) => {
     key = post.postKey;
     printRecents3(".style3", post, key);
   });
-  console.log(section3Recents);
+  //console.log(section3Recents);
 };
 /* Request para obtener los post, imprimirlos y crear arreglo */
 const getPostDb = () => {
@@ -416,7 +417,7 @@ const printModal = (selectedPost) => {
 const conseguirModal = () => {
   event.preventDefault();
   let keyPost = $(event.target).attr("id");
-  console.log("key: " + keyPost);
+  //console.log("key: " + keyPost);
   let selectedPost = postObjectArr[keyPost];
   //console.log(postObjectArr);
   printModal(selectedPost);
@@ -430,4 +431,18 @@ const addShowModalListeners = () => {
     a.addEventListener("click", conseguirModal);
   });
 };
+
+/* SCROLL infinito */
+var viewportHeight = window.innerHeight;
+window.addEventListener("scroll", (event) => {
+  let scollPosition = window.scrollY;
+  // console.log(window.scrollY);
+  scollPosition > viewportHeight
+    ? postWithKeyObjectArr.forEach((post) => {
+        key = post.postKey;
+        printGeneralCard(".general-2", post, key);
+      })
+    : null;
+});
+
 getPostDb();
