@@ -27,6 +27,7 @@
   </head>
 
   <body>
+    <div class="container">
     <!-- Modales a utilizar -->
     <!-- Modal-1-->
     <div id="articleModal" class="modal" tabindex="-1" role="dialog">
@@ -182,60 +183,58 @@
     </div>
     <!-- fin contenedor logo e iconos -->
     <!-- menu -->
-    <div class="d-flex justify-content-center" id="nav-general">
-    <nav
-      class="sticky-nav d-flex justify-content-center align-items-center mt-3 pl-md-5 col-lg-7"
-    >
-       <a id="izquierda"><i class="fas fa-angle-left p-3"></i></a>
-       <div class="d-flex justify-content-center" id="nav-container">
-      <ul class="ocultar nav justify-content-center" id="nav-inside">
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="#">HOME</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">POPULAR</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">MOMENTUM</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">CORONAVIRUS</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active" href="#">ONEZERO</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">ELEMENTAL</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">GEN</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">ZORA</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">FORGE</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-nowrap" href="#">HUMAN PARTS</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">MARKER</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">LEVEL</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">HEATED</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">MORE</a>
-        </li>
-      </ul>
+      <div class="row">
+      <div class="col-12">
+       <nav class="d-flex mt-2">
+        <i class="fas fa-angle-left nav-control left pt-2 mr-2" onclick= "navbarScroll('left')" ></i>
+        <ul class="ocultar nav" id="nav-inside">
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">POPULAR</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">MOMENTUM</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">CORONAVIRUS</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link active" href="#">ONEZERO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ELEMENTAL</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">GEN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ZORA</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">FORGE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-nowrap" href="#">HUMAN PARTS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">MARKER</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">LEVEL</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">HEATED</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">MORE</a>
+          </li>
+        </ul>
+       <i class="fas fa-angle-right nav-control right pt-2 ml-2" onclick= "navbarScroll('right')"></i>
+      </nav>
     </div>
-      <a id="derecha"><i class="fas fa-angle-right p-3"></i></a>
-    </nav>
   </div>
     <!-- fin menu -->
     <!-- CONTENEDOR  DEL CUERPO DE LA PÁGINA -->
@@ -364,7 +363,7 @@
       <!-- FIN FILA 2  -->
     </div>
     <!-- FIN CONTENEDOR CONTENT-WRAPER -->
-
+  </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -384,5 +383,6 @@
     ></script>
     <!-- Enlazando nuestro js -->
     <script src="js/main.js"></script>
+
   </body>
 </html>

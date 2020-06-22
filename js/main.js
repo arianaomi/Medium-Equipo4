@@ -402,12 +402,21 @@ const addShowModalListeners = () => {
   });
 };
 getPostDb();
+let viewportWidth = $(window).innerWidth();
 
-const moverIzquierda = (event) => {
-  $("#nav-inside").css({left:-830})
-};
-const moverDerecha = (event) => {
-  $("#nav-inside").css({left:0})
-};
-$("#izquierda").click(moverDerecha);
-$("#derecha").click(moverIzquierda);
+const navbarScroll = (direction) => {
+  if(direction === 'left' && viewportWidth < 1000){
+    $("#nav-inside").animate({scrollLeft : '-=50px'},
+    'fast')
+  }else if(direction === 'right' && viewportWidth < 1000){
+    $("#nav-inside").animate({scrollLeft : '+=50px'},
+    'fast')
+}else if(direction === 'left' && viewportWidth > 1000){
+  $("#nav-inside").animate({scrollLeft : '0px'},
+  'fast')
+}
+  else if(direction === 'right' && viewportWidth > 1000){
+    $("#nav-inside").animate({scrollLeft : '950px'},
+    'fast')
+  }
+}
