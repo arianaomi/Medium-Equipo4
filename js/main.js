@@ -86,7 +86,7 @@ const printGeneralCard = (container, postObject, key) => {
 
               <small class="text-muted"
                 ><p class="card-text">
-                  ${date}  <small> ★</small></p
+                  ${date} &middot; 8 min read <small> ★</small></p
               ></small>
             </div>
             <div class="font-weight-lighter text-muted mr-3">
@@ -148,8 +148,8 @@ const printRecents1 = (container, postObject, key) => {
           <small class="text-muted"
             ><p class="card-text">
               ${date} &middot; 6 min read <small> ★</small>
-              <i class="p-2 fas fa-star"></i></p
-          ></small>
+              </p> 
+            </small>
         </div>
         <div class="font-weight-lighter text-muted">
         
@@ -314,12 +314,11 @@ const getmostRecent = () => {
 const getmostPopular = () => {
   let mostPopular;
   let count = 1;
-  //postWithKeyObjectArr3 = postWithKeyObjectArr
   mostPopular = postWithKeyObjectArr.filter((post) => {
     return post.popularFlag == true;
   });
   //console.log(postWithKeyObjectArr);
-  mostPopular = mostPopular.slice(0, 4);
+  mostPopular = mostPopular.reverse().slice(0, 4);
   //console.log(mostPopular);
   return mostPopular;
 };
@@ -395,7 +394,7 @@ const getPostDb = () => {
         postWithKeyObjectArr.push(postWithKeyObject);
       });
       printDOM();
-      //console.log(postWithKeyObjectArr);
+      console.log(postWithKeyObjectArr);
       addShowModalListeners();
     }
   );
@@ -448,18 +447,13 @@ getPostDb();
 let viewportWidth = $(window).innerWidth();
 
 const navbarScroll = (direction) => {
-  if(direction === 'left' && viewportWidth < 1000){
-    $("#nav-inside").animate({scrollLeft : '-=50px'},
-    'fast')
-  }else if(direction === 'right' && viewportWidth < 1000){
-    $("#nav-inside").animate({scrollLeft : '+=50px'},
-    'fast')
-}else if(direction === 'left' && viewportWidth > 1000){
-  $("#nav-inside").animate({scrollLeft : '0px'},
-  'fast')
-}
-  else if(direction === 'right' && viewportWidth > 1000){
-    $("#nav-inside").animate({scrollLeft : '950px'},
-    'fast')
+  if (direction === "left" && viewportWidth < 1000) {
+    $("#nav-inside").animate({ scrollLeft: "-=50px" }, "fast");
+  } else if (direction === "right" && viewportWidth < 1000) {
+    $("#nav-inside").animate({ scrollLeft: "+=50px" }, "fast");
+  } else if (direction === "left" && viewportWidth > 1000) {
+    $("#nav-inside").animate({ scrollLeft: "0px" }, "fast");
+  } else if (direction === "right" && viewportWidth > 1000) {
+    $("#nav-inside").animate({ scrollLeft: "950px" }, "fast");
   }
-}
+};
