@@ -416,7 +416,7 @@ const printModal = (selectedPost) => {
 const conseguirModal = () => {
   event.preventDefault();
   let keyPost = $(event.target).attr("id");
-  //console.log("key: " + keyPost);
+  console.log("key: " + keyPost);
   let selectedPost = postObjectArr[keyPost];
   //console.log(postObjectArr);
   printModal(selectedPost);
