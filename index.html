@@ -253,11 +253,11 @@
       <div class="nav-bar col-12">
         <nav class="justify-content-center align-items-center">
         <ul class="d-flex p-0 justify-content-between pl-0 pr-5">
-          <ul class="p-0 mt-2">
-              <li id="horizon-prev"><img class="arrows" width="20px" src="img/flecha1.svg" alt="arrow1"
+          <ul class="p-0 mt-2" onclick="navbarScroll('left')">
+              <li id="horizon-prev"><img class="arrows" width="20px" src="img/flecha1.svg"  alt="arrow1"
                       data-slide="prev"></li>
           </ul>
-          <ul class="d-flex lix p-0  screen mt-2">
+          <ul class="d-flex lix p-0  screen mt-2" id="nav-inside">
               <li class="mr-3 sizetext">HOME</li>
               <li class="mr-3 sizetext">MOMENTUM</li>
               <li class="mx-3 sizetext">CORONAVIRUS</li>
@@ -274,7 +274,7 @@
               <li class="ml-3 sizetext">HEATED</li>
               <li class="ml-3 sizetext">MORE</li>
           </ul>
-          <ul class="p-0 mt-2">
+          <ul class="p-0 mt-2" onclick="navbarScroll('right')">
               <li id="horizon-next"><img class="arrow" width="20px" src="img/flecha2.svg" alt="arrow2"
                       data-slide="next"></li>
           </ul>
