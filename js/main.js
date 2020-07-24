@@ -53,19 +53,20 @@ const saveNewPost = () => {
 
 const uploadPost = postObject => {
   console.log(postObject)
-  $.post({ 
-    url: "http://localhost:8080/entries", 
+  $.post({
+    url: 'http://localhost:8080/entries',
     headers: {
-      "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMWEwOGE1YTRlNTdmZGMxOWJmNDQxYyIsImlhdCI6MTU5NTU0MTY3NiwiZXhwIjoxNTk1NjI4MDc2fQ.GRP4j7hL2g6UNF7jUGcn9039z1e6UhN9kZa4VDywPls",
-      "Content-Type": "application/json"
+      Authorization:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMWEwOGE1YTRlNTdmZGMxOWJmNDQxYyIsImlhdCI6MTU5NTU0MTY3NiwiZXhwIjoxNTk1NjI4MDc2fQ.GRP4j7hL2g6UNF7jUGcn9039z1e6UhN9kZa4VDywPls',
+      'Content-Type': 'application/json',
     },
     data: JSON.stringify({
-      "title": postObject.title,
-      "subtitle": postObject.subtitle,
-      "writer": postObject.author,
-      "image": postObject.image,
-      "isPopular": true
-    })
+      title: postObject.title,
+      subtitle: postObject.subtitle,
+      writer: postObject.author,
+      image: postObject.image,
+      isPopular: true,
+    }),
   })
   $('#successModal').modal('show')
 }
@@ -399,28 +400,6 @@ const getPostDb = () => {
     addShowModalListeners()
   })
 }
-/* Request para obtener los post, imprimirlos y crear arreglo */
-/*const getPostDb = () => {
-  $.get(
-    'https://ajaxclass-1ca34.firebaseio.com/mediumBlog/Equipo4/post/.json',
-    function (response) {
-      $.each(response, (key, value) => {
-        console.log('response', response)
-        console.log('key', key)
-        console.log('value', value)
-        //printPostSection1Card(value, key);
-        // postObject = response;
-        postObjectArr[key] = value
-        console.log(postObjectArr)
-        postWithKeyObject = { ...value, postKey: key }
-        postWithKeyObjectArr.push(postWithKeyObject)
-      })
-      printDOM()
-      console.log(postWithKeyObjectArr)
-      addShowModalListeners()
-    }
-  )
-}*/
 /* Imprimir modal */
 const printModal = selectedPost => {
   let { title, subtitle, autor, content, image } = selectedPost
