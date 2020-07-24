@@ -52,11 +52,20 @@ const saveNewPost = () => {
 /* Sube al endpoint el post creado y nos regresa la llave con lo que lo guardo */
 const uploadPost = postObject => {
   console.log(postObject)
-  $.post('http://localhost:8080/entries', postObject, function (data) {
-    $('#successModal').modal('show')
-
-  }),
-    'json'
+  $.post({ 
+    url: "http://localhost:8080/entries", 
+    headers: {
+      "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMWEwOGE1YTRlNTdmZGMxOWJmNDQxYyIsImlhdCI6MTU5NTU0MTY3NiwiZXhwIjoxNTk1NjI4MDc2fQ.GRP4j7hL2g6UNF7jUGcn9039z1e6UhN9kZa4VDywPls",
+      "Content-Type": "application/json"
+    },
+    data: JSON.stringify({
+      "title": postObject.title,
+      "subtitle": postObject.subtitle,
+      "writer": postObject.author,
+      "image": postObject.image,
+      "isPopular": true
+    })
+  })
 }
 
 /* Crear la card con los datos de db */
@@ -380,14 +389,11 @@ const getPostDb = () => {
   $.get('http://localhost:8080/entries', function (response) {
     response.data.forEach(entries => {
       const { _id, writer } = entries
-      console.log('hola writer:', writer)
-      console.log(entries)
       postObjectArr[_id] = entries
       postWithKeyObject = { ...entries, postKey: _id, autor: writer.name }
       postWithKeyObjectArr.push(postWithKeyObject)
     })
     printDOM()
-    console.log(postWithKeyObjectArr)
     addShowModalListeners()
   })
 }
