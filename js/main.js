@@ -50,13 +50,34 @@ const saveNewPost = () => {
 }
 
 /* Sube al endpoint el post creado y nos regresa la llave con lo que lo guardo */
+
 const uploadPost = postObject => {
-  console.log(postObject)
+   $.ajax({
+     url: 'http://localhost:3000/entries',
+     method: 'POST',
+     dataType: 'json',
+     headers: {
+       Authorization:
+         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMWEwNjBlY2UwM2ZmMTc2NTFkYzZmNSIsImlhdCI6MTU5NTU0MTAxMSwiZXhwIjoxNTk1NjI3NDExfQ.QJEgTCIqShH28Kf6bDADfnJKJu3kEaoVjvBGJEfOMM4',
+       'Content-Type': 'application/json',
+     },
+     data: JSON.stringify(postObject),
+     success: response => {
+       jQuery.parseJSON(response)
+       console.log(response)
+       console.log('registro exitoso')
+       getPostDb()
+     },
+   })
+
+
+  
+  /* console.log(postObject)
   $.post('http://localhost:8080/entries', postObject, function (data) {
     $('#successModal').modal('show')
 
   }),
-    'json'
+    'json' */
 }
 
 /* Crear la card con los datos de db */
